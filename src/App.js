@@ -1,23 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Offer from "./pages/Offer";
+import Header from "./components/Header";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [data, setData] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [cardArray, setCardArray] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://lereacteur-vinted-api.herokuapp.com/offers"
+      );
+      setData(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  // console.log("data >>>> ", data);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLoading ? (
+        <p>Chargement</p>
+      ) : (
+        <div>
+          <Router>
+            <Header />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    offersArray={data.offers}
+                    cardArray={cardArray}
+                    setCardArray={setCardArray}
+                  />
+                }
+              />
+              <Route path="/offers" element={<Offer />} />
+            </Routes>
+          </Router>
+        </div>
+      )}
     </div>
   );
 }

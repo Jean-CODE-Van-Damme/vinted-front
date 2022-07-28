@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+.container {
+  /* width: 100%; */
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  height: 80px;
+  background-color: whitesmoke;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header img {
+  width: 80px;
+  height: 40px;
+}
+
+header input {
+  width: 45%;
+  height: 45px;
+  outline-color: transparent;
+  border: none;
+  border-radius: 5px;
+  background-color: #d5d6d7;
+}
+
+.button1 {
+  border: 1px #2db0ba solid;
+  color: #2db0ba;
+  border-radius: 5px;
+  width: 10%;
+  height: 35px;
+}
+
+.button2 {
+  background-color: #2db0ba;
+  color: white;
+  margin-left: 20px;
+  border-radius: 5px;
+  width: 15%;
+  height: 35px;
+}
+
+.home img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  position: relative;
+}
+
+.start-sell {
+  /* border: 2px red solid; */
+  width: 20%;
+  height: 150px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  position: absolute;
+  left: 240px;
+  top: 120px;
+  right: 1200px;
+  font-size: 20px;
+  background-color: white;
+}
+
+.start-sell button {
+  width: 60%;
+  height: 25%;
+  background-color: #2db0ba;
   color: white;
+  border-radius: 5px;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.all-cards {
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  /* justify-content: center; */
+  justify-content: flex-start;
+  width: 75%;
+  /* border: 4px black solid; */
+  flex-wrap: wrap;
+  /* background-color: gold; */
+  padding: 20px;
+  gap: 20px;
+}
+
+.card {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px red solid; */
+  margin: 20px 0px;
+}
+
+.card-name {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 2px blue solid; */
+}
+
+.card-img {
+  width: 100%;
+  /* border: 2px green solid; */
+}
+
+.card-img img {
+  object-fit: cover;
+}
+
+.card-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 2px pink solid; */
+  width: 100%;
+  height: 30px;
+}
+
+.card-name img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
