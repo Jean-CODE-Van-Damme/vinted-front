@@ -7,9 +7,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [cardArray, setCardArray] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -38,17 +37,8 @@ function App() {
           <Router>
             <Header />
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <Home
-                    offersArray={data.offers}
-                    cardArray={cardArray}
-                    setCardArray={setCardArray}
-                  />
-                }
-              />
-              <Route path="/offers" element={<Offer />} />
+              <Route path="/" element={<Home offersArray={data.offers} />} />
+              <Route path="/offers/:id" element={<Offer />} />
             </Routes>
           </Router>
         </div>

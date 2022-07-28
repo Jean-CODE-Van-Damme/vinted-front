@@ -4,6 +4,11 @@
   margin: 0 auto;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 header {
   height: 80px;
   background-color: whitesmoke;
@@ -102,7 +107,6 @@ h2 {
   width: 18%;
   display: flex;
   flex-direction: column;
-  /* border: 2px red solid; */
   margin: 20px 0px;
 }
 
@@ -122,6 +126,10 @@ h2 {
 
 .card-img img {
   object-fit: cover;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card-price {
