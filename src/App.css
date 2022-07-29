@@ -9,6 +9,8 @@ a {
   text-decoration: none;
 }
 
+/* HEADER */
+
 header {
   height: 80px;
   background-color: whitesmoke;
@@ -52,6 +54,8 @@ header input {
   width: 15%;
   height: 35px;
 }
+
+/* HOME PAGE */
 
 .home img {
   width: 100%;
@@ -146,4 +150,153 @@ h2 {
   height: 25px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+/* OFFER PAGE */
+
+.offer {
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-around;
+  background-color: #ebedee;
+  padding: 50px;
+}
+
+.offer-left {
+  width: 50%;
+  margin-bottom: 100px;
+  /* border: 2px red solid; */
+}
+
+.offer-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px blue solid; */
+  margin-bottom: 100px;
+  background-color: white;
+}
+
+.right-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  width: 100%;
+  height: 10%;
+  /* border: 2px green solid; */
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.right-start {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 25px;
+
+  width: 100%;
+  height: 30%;
+  /* border: 2px green solid; */
+  /* background-color: blue; */
+  border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.right-start::-webkit-scrollbar {
+  display: none;
+}
+/* .bloc_photo::-webkit-scrollbar {
+  /* display: none; 
+ 
+} */
+
+.right-start span {
+  text-align: center;
+}
+
+.right-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 40%;
+  /* border: 2px yellow solid; */
+  line-height: 40px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.right-end::-webkit-scrollbar {
+  display: none;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  /* border: 2px red solid; */
+}
+
+.center p {
+  width: 50%;
+  /* border: 2px blue solid; */
+  opacity: 0.5;
+}
+
+.right-owner {
+  /* background-color: gold; */
+  display: flex;
+}
+
+.right-owner img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.description {
+  opacity: 0.5;
+}
+
+.button-end {
+  width: 100%;
+  height: 20%;
+  /* border: 2px red solid; */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button-end button {
+  width: 80%;
+  height: 40%;
+  border-radius: 5px;
+  background-color: #1fb0ba;
+  color: white;
+  border: none;
+}
+
+.link-offer {
+  background-color: #1fb0ba;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
 }
