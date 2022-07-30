@@ -78,6 +78,21 @@ header input {
   border: none;
 }
 
+.username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2db0ba;
+  color: white;
+  border-radius: 5px;
+  /* height: 20px; */
+  padding: 5px;
+}
+
+.productArray {
+  opacity: 0.5;
+}
+
 /* HOME PAGE */
 
 .home {

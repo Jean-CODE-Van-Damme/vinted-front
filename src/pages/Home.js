@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -55,7 +54,9 @@ const Home = () => {
                         </div>
                       )}
                       {element.owner && (
-                        <div>{element.owner.account.username}</div>
+                        <div className="username">
+                          {element.owner.account.username}
+                        </div>
                       )}
                     </div>
                     <div className="card-img">
@@ -65,7 +66,7 @@ const Home = () => {
 
                     {productArray.map((product, index) => {
                       return (
-                        <div key={index}>
+                        <div className="productArray" key={index}>
                           <div>{product.MARQUE}</div>
                           <div>{product.TAILLE}</div>
                         </div>
