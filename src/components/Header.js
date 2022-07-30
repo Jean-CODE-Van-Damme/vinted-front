@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../images/Vinted_logo.png";
 
 const Header = () => {
@@ -7,7 +8,10 @@ const Header = () => {
         <div className="container">
           <div className="header-div">
             <div className="header-start">
-              <img src={logo} alt="" />
+              <Link to="/">
+                <img src={logo} alt="" />
+              </Link>
+
               <input type="search" placeholder=" 🔍 Recherche tes articles" />
             </div>
             <div className="header-end">

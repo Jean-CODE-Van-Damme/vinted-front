@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -25,7 +24,7 @@ const Offer = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   return (
     <div>
@@ -35,9 +34,6 @@ const Offer = () => {
         <div className="offer">
           <div className="offer-left">
             <img src={data.product_image.secure_url} alt="" />
-            <Link className="link-offer" to="/">
-              Go to Home page
-            </Link>
           </div>
           <div className="offer-right">
             <div className="right-price">{data.product_price} $</div>

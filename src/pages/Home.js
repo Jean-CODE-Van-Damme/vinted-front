@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import img from "../images/image_vinted.jpeg";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -33,14 +33,14 @@ const Home = () => {
         <p>Chargement</p>
       ) : (
         <div className="home">
-          <img src={img} alt="" />
-
-          <div className="container">
+          <div className="big-picture">
             <div className="start-sell">
               <h2>Prêts à faire du tri dans vos placards ?</h2>
               <button>Commencer à vendre</button>
             </div>
+          </div>
 
+          <div className="container">
             <div className="all-cards ">
               {offersArray.map((element) => {
                 const productArray = element.product_details;
