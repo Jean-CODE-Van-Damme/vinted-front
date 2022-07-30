@@ -40,42 +40,41 @@ const Home = () => {
               <h2>Prêts à faire du tri dans vos placards ?</h2>
               <button>Commencer à vendre</button>
             </div>
-          </div>
 
-          <div className="all-cards">
-            {offersArray.map((element) => {
-              const pictureArray = element.product_pictures;
-              const productArray = element.product_details;
-              const id = element._id;
+            <div className="all-cards ">
+              {offersArray.map((element) => {
+                const productArray = element.product_details;
+                const id = element._id;
 
-              return (
-                <Link to={`/offers/${id}`} className="card" key={element._id}>
-                  <div className="card-name">
-                    {element.owner && (
-                      <div>
-                        <img src={element.owner.account.avatar.url} alt="" />
-                      </div>
-                    )}
-                    {element.owner && (
-                      <div>{element.owner.account.username}</div>
-                    )}
-                  </div>
-                  <div className="card-img">
-                    <img src={element.product_image.secure_url} alt="" />
-                  </div>
-                  <div className="card-price">{element.product_price} $</div>
+                return (
+                  <Link to={`/offers/${id}`} className="card" key={element._id}>
+                    <div className="card-name">
+                      {element.owner && (
+                        <div>
+                          <img src={element.owner.account.avatar.url} alt="" />
+                        </div>
+                      )}
+                      {element.owner && (
+                        <div>{element.owner.account.username}</div>
+                      )}
+                    </div>
+                    <div className="card-img">
+                      <img src={element.product_image.secure_url} alt="" />
+                    </div>
+                    <div className="card-price">{element.product_price} $</div>
 
-                  {productArray.map((product, index) => {
-                    return (
-                      <div key={index}>
-                        <div>{product.MARQUE}</div>
-                        <div>{product.TAILLE}</div>
-                      </div>
-                    );
-                  })}
-                </Link>
-              );
-            })}
+                    {productArray.map((product, index) => {
+                      return (
+                        <div key={index}>
+                          <div>{product.MARQUE}</div>
+                          <div>{product.TAILLE}</div>
+                        </div>
+                      );
+                    })}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

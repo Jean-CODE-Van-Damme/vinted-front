@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <script defer="" src="./React App_files/bundle.js"></script><style>/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7OztDQUdDOztBQUVEOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7RUFpRkUsU0FBUztFQUNULFVBQVU7RUFDVixTQUFTO0VBQ1QsZUFBZTtFQUNmLGFBQWE7RUFDYix3QkFBd0I7QUFDMUI7QUFDQSxnREFBZ0Q7QUFDaEQ7Ozs7Ozs7Ozs7O0VBV0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBOztFQUVFLGdCQUFnQjtBQUNsQjtBQUNBOztFQUVFLFlBQVk7QUFDZDtBQUNBOzs7O0VBSUUsV0FBVztFQUNYLGFBQWE7QUFDZjtBQUNBO0VBQ0UseUJBQXlCO0VBQ3pCLGlCQUFpQjtBQUNuQiIsInNvdXJjZXNDb250ZW50IjpbIi8qIGh0dHA6Ly9tZXllcndlYi5jb20vZXJpYy90b29scy9jc3MvcmVzZXQvIFxuICAgdjIuMCB8IDIwMTEwMTI2XG4gICBMaWNlbnNlOiBub25lIChwdWJsaWMgZG9tYWluKVxuKi9cblxuaHRtbCxcbmJvZHksXG5kaXYsXG5zcGFuLFxuYXBwbGV0LFxub2JqZWN0LFxuaWZyYW1lLFxuaDEsXG5oMixcbmgzLFxuaDQsXG5oNSxcbmg2LFxucCxcbmJsb2NrcXVvdGUsXG5wcmUsXG5hLFxuYWJicixcbmFjcm9ueW0sXG5hZGRyZXNzLFxuYmlnLFxuY2l0ZSxcbmNvZGUsXG5kZWwsXG5kZm4sXG5lbSxcbmltZyxcbmlucyxcbmtiZCxcbnEsXG5zLFxuc2FtcCxcbnNtYWxsLFxuc3RyaWtlLFxuc3Ryb25nLFxuc3ViLFxuc3VwLFxudHQsXG52YXIsXG5iLFxudSxcbmksXG5jZW50ZXIsXG5kbCxcbmR0LFxuZGQsXG5vbCxcbnVsLFxubGksXG5maWVsZHNldCxcbmZvcm0sXG5sYWJlbCxcbmxlZ2VuZCxcbnRhYmxlLFxuY2FwdGlvbixcbnRib2R5LFxudGZvb3QsXG50aGVhZCxcbnRyLFxudGgsXG50ZCxcbmFydGljbGUsXG5hc2lkZSxcbmNhbnZhcyxcbmRldGFpbHMsXG5lbWJlZCxcbmZpZ3VyZSxcbmZpZ2NhcHRpb24sXG5mb290ZXIsXG5oZWFkZXIsXG5oZ3JvdXAsXG5tZW51LFxubmF2LFxub3V0cHV0LFxucnVieSxcbnNlY3Rpb24sXG5zdW1tYXJ5LFxudGltZSxcbm1hcmssXG5hdWRpbyxcbnZpZGVvIHtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xuICBib3JkZXI6IDA7XG4gIGZvbnQtc2l6ZTogMTAwJTtcbiAgZm9udDogaW5oZXJpdDtcbiAgdmVydGljYWwtYWxpZ246IGJhc2VsaW5lO1xufVxuLyogSFRNTDUgZGlzcGxheS1yb2xlIHJlc2V0IGZvciBvbGRlciBicm93c2VycyAqL1xuYXJ0aWNsZSxcbmFzaWRlLFxuZGV0YWlscyxcbmZpZ2NhcHRpb24sXG5maWd1cmUsXG5mb290ZXIsXG5oZWFkZXIsXG5oZ3JvdXAsXG5tZW51LFxubmF2LFxuc2VjdGlvbiB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuYm9keSB7XG4gIGxpbmUtaGVpZ2h0OiAxO1xufVxub2wsXG51bCB7XG4gIGxpc3Qtc3R5bGU6IG5vbmU7XG59XG5ibG9ja3F1b3RlLFxucSB7XG4gIHF1b3Rlczogbm9uZTtcbn1cbmJsb2NrcXVvdGU6YmVmb3JlLFxuYmxvY2txdW90ZTphZnRlcixcbnE6YmVmb3JlLFxucTphZnRlciB7XG4gIGNvbnRlbnQ6IFwiXCI7XG4gIGNvbnRlbnQ6IG5vbmU7XG59XG50YWJsZSB7XG4gIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XG4gIGJvcmRlci1zcGFjaW5nOiAwO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>/* * {
+  box-sizing: border-box;
+} */
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  /* background-color: blue; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+  /* height: 80px; */
+  background-color: whitesmoke;
+}
+
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 20px 50px;
+  box-sizing: border-box;
+}
+
+.header-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  border: 2px red solid;
+}
+
+.header-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  border: 2px yellow solid;
+}
+
+header img {
+  width: 80px;
+  height: 40px;
+}
+
+header input {
+  width: 70%;
+  height: 45px;
+  outline-color: transparent;
+  border: none;
+  border-radius: 5px;
+  background-color: #d5d6d7;
+}
+
+.button1 {
+  border: 1px #2db0ba solid;
+  color: #2db0ba;
+  border-radius: 5px;
+  width: 20%;
+  height: 35px;
+}
+
+.button2 {
+  background-color: #2db0ba;
+  color: white;
+  margin-left: 20px;
+  border-radius: 5px;
+  width: 30%;
+  height: 35px;
+}
+
+/* HOME PAGE */
+
+.home img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  position: relative;
+}
+
+.start-sell {
+  /* border: 2px red solid; */
+  width: 20%;
+  height: 150px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  left: 240px;
+  top: 120px;
+  right: 1200px;
+  font-size: 20px;
+  background-color: white;
+}
+
+.start-sell button {
+  width: 60%;
+  height: 25%;
+  background-color: #2db0ba;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.all-cards {
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-between;
+  width: 100%;
+  /* border: 4px black solid; */
+  flex-wrap: wrap;
+  background-color: gold;
+}
+
+.card {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  border: 2px red solid;
+  margin: 20px 0px;
+  box-sizing: border-box;
+}
+
+.card-name {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 2px blue solid; */
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.card-img {
+  width: 100%;
+  /* border: 2px green solid; */
+}
+
+.card-img img {
+  object-fit: cover;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 2px pink solid; */
+  width: 100%;
+  height: 30px;
+}
+
+.card-name img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* OFFER PAGE */
+
+.offer {
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-around;
+  background-color: #ebedee;
+  padding: 50px;
+}
+
+.offer-left {
+  width: 50%;
+  margin-bottom: 100px;
+  /* border: 2px red solid; */
+}
+
+.offer-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer-right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px blue solid; */
+  margin-bottom: 100px;
+  background-color: white;
+}
+
+.right-price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  width: 100%;
+  height: 10%;
+  /* border: 2px green solid; */
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.right-start {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 25px;
+
+  width: 100%;
+  height: 30%;
+  /* border: 2px green solid; */
+  /* background-color: blue; */
+  border-bottom: 1px solid lightgray;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.right-start::-webkit-scrollbar {
+  display: none;
+}
+/* .bloc_photo::-webkit-scrollbar {
+  /* display: none; 
+ 
+} */
+
+.right-start span {
+  text-align: center;
+}
+
+.right-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 40%;
+  /* border: 2px yellow solid; */
+  line-height: 40px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.right-end::-webkit-scrollbar {
+  display: none;
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  /* border: 2px red solid; */
+}
+
+.center p {
+  width: 50%;
+  /* border: 2px blue solid; */
+  opacity: 0.5;
+}
+
+.right-owner {
+  /* background-color: gold; */
+  display: flex;
+}
+
+.right-owner img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.description {
+  opacity: 0.5;
+}
+
+.button-end {
+  width: 100%;
+  height: 20%;
+  /* border: 2px red solid; */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button-end button {
+  width: 80%;
+  height: 40%;
+  border-radius: 5px;
+  background-color: #1fb0ba;
+  color: white;
+  border: none;
+}
+
+.link-offer {
+  background-color: #1fb0ba;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+/* MEDIA QUERIES */
+@media (max-width: 868px) {
+  .card {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 2px red solid;
+    margin: 20px 0px;
+    box-sizing: border-box;
+  }
+
+  .header-div {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 50px;
+    box-sizing: border-box;
+  }
+
+  .header-start {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 2px red solid;
+  }
+
+  .header-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 2px yellow solid;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHOztBQUVIO0VBQ0UsV0FBVztFQUNYLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsNEJBQTRCO0FBQzlCOztBQUVBO0VBQ0UsY0FBYztFQUNkLHFCQUFxQjtBQUN2Qjs7QUFFQSxXQUFXOztBQUVYO0VBQ0Usa0JBQWtCO0VBQ2xCLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsU0FBUzs7RUFFVCxrQkFBa0I7RUFDbEIsc0JBQXNCO0FBQ3hCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixtQkFBbUI7RUFDbkIsVUFBVTtFQUNWLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGFBQWE7RUFDYiw4QkFBOEI7RUFDOUIsbUJBQW1CO0VBQ25CLFVBQVU7RUFDVix3QkFBd0I7QUFDMUI7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBO0VBQ0UsVUFBVTtFQUNWLFlBQVk7RUFDWiwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsY0FBYztFQUNkLGtCQUFrQjtFQUNsQixVQUFVO0VBQ1YsWUFBWTtBQUNkOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixZQUFZO0FBQ2Q7O0FBRUEsY0FBYzs7QUFFZDtFQUNFLFdBQVc7RUFDWCxhQUFhO0VBQ2IsaUJBQWlCO0VBQ2pCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLDJCQUEyQjtFQUMzQixVQUFVO0VBQ1YsYUFBYTtFQUNiLGFBQWE7RUFDYixhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLDZCQUE2QjtFQUM3QixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFVBQVU7RUFDVixhQUFhO0VBQ2IsZUFBZTtF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Q2Q7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7QUFDcEI7QUFDQSxrQkFBa0I7QUFDbEI7RUFDRTtJQUNFLFVBQVU7SUFDVixhQUFhO0lBQ2Isc0JBQXNCO0lBQ3RCLHFCQUFxQjtJQUNyQixnQkFBZ0I7SUFDaEIsc0JBQXNCO0VBQ3hCOztFQUVBO0lBQ0UsYUFBYTtJQUNiLHNCQUFzQjs7SUFFdEIsa0JBQWtCO0lBQ2xCLHNCQUFzQjtFQUN4Qjs7RUFFQTtJQUNFLGFBQWE7SUFDYiw4QkFBOEI7SUFDOUIsbUJBQW1CO0lBQ25CLFdBQVc7SUFDWCxxQkFBcUI7RUFDdkI7O0VBRUE7SUFDRSxhQUFhO0lBQ2IsOEJBQThCO0lBQzlCLG1CQUFtQjtJQUNuQixXQUFXO0lBQ1gsd0JBQXdCO0VBQzFCO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIvKiAqIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn0gKi9cblxuLmNvbnRhaW5lciB7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXgtd2lkdGg6IDEzMDBweDtcbiAgbWFyZ2luOiAwIGF1dG87XG4gIC8qIGJhY2tncm91bmQtY29sb3I6IGJsdWU7ICovXG59XG5cbmEge1xuICBjb2xvcjogaW5oZXJpdDtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufVxuXG4vKiBIRUFERVIgKi9cblxuaGVhZGVyIHtcbiAgLyogaGVpZ2h0OiA4MHB4OyAqL1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZXNtb2tlO1xufVxuXG4uaGVhZGVyLWRpdiB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgZ2FwOiAyMHB4O1xuXG4gIHBhZGRpbmc6IDIwcHggNTBweDtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cblxuLmhlYWRlci1zdGFydCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgd2lkdGg6IDUwJTtcbiAgYm9yZGVyOiAycHggcmVkIHNvbGlkO1xufVxuXG4uaGVhZGVyLWVuZCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgd2lkdGg6IDUwJTtcbiAgYm9yZGVyOiAycHggeWVsbG93IHNvbGlkO1xufVxuXG5oZWFkZXIgaW1nIHtcbiAgd2lkdGg6IDgwcHg7XG4gIGhlaWdodDogNDBweDtcbn1cblxuaGVhZGVyIGlucHV0IHtcbiAgd2lkdGg6IDcwJTtcbiAgaGVpZ2h0OiA0NXB4O1xuICBvdXRsaW5lLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgYm9yZGVyOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICNkNWQ2ZDc7XG59XG5cbi5idXR0b24xIHtcbiAgYm9yZGVyOiAxcHggIzJkYjBiYSBzb2xpZDtcbiAgY29sb3I6ICMyZGIwYmE7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgd2lkdGg6IDIwJTtcbiAgaGVpZ2h0OiAzNXB4O1xufVxuXG4uYnV0dG9uMiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyZGIwYmE7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgd2lkdGg6IDMwJTtcbiAgaGVpZ2h0OiAzNXB4O1xufVxuXG4vKiBIT01FIFBBR0UgKi9cblxuLmhvbWUgaW1nIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMzUwcHg7XG4gIG9iamVjdC1maXQ6IGNvdmVyO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG5cbi5zdGFydC1zZWxsIHtcbiAgLyogYm9yZGVyOiAycHggcmVkIHNvbGlkOyAqL1xuICB3aWR0aDogMjAlO1xuICBoZWlnaHQ6IDE1MHB4O1xuICBwYWRkaW5nOiAzMnB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAyNDBweDtcbiAgdG9wOiAxMjBweDtcbiAgcmlnaHQ6IDEyMDBweDtcbiAgZm9udC1zaXplOiAyMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbn1cblxuLnN0YXJ0LXNlbGwgYnV0dG9uIHtcbiAgd2lkdGg6IDYwJTtcbiAgaGVpZ2h0OiAyNSU7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyZGIwYmE7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBib3JkZXI6IG5vbmU7XG59XG5cbmgyIHtcbiAgZm9udC1zaXplOiAxLjVyZW07XG59XG5cbi5hbGwtY2FyZHMge1xuICBtYXJnaW46IDAgYXV0bztcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgZGlzcGxheTogZmxleDtcbiAgLyoganVzdGlmeS1jb250ZW50OiBjZW50ZXI7ICovXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgd2lkdGg6IDEwMCU7XG4gIC8qIGJvcmRlcjogNHB4IGJsYWNrIHNvbGlkOyAqL1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGJhY2tncm91bmQtY29sb3I6IGdvbGQ7XG59XG5cbi5jYXJkIHtcbiAgd2lkdGg6IDIzJTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYm9yZGVyOiAycHggcmVkIHNvbGlkO1xuICBtYXJnaW46IDIwcHggMHB4O1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xufVxuXG4uY2FyZC1uYW1lIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMzBweDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAvKiBib3JkZXI6IDJweCBibHVlIHNvbGlkOyAqL1xuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5cbi5jYXJkLWltZyB7XG4gIHdpZHRoOiAxMDAlO1xuICAvKiBib3JkZXI6IDJweCBncmVlbiBzb2xpZDsgKi9cbn1cblxuLmNhcmQtaW1nIGltZyB7XG4gIG9iamVjdC1maXQ6IGNvdmVyO1xufVxuXG4uY2FyZDpob3ZlciB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmNhcmQtcHJpY2Uge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIC8qIGJvcmRlcjogMnB4IHBpbmsgc29saWQ7ICovXG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDMwcHg7XG59XG5cbi5jYXJkLW5hbWUgaW1nIHtcbiAgd2lkdGg6IDI1cHg7XG4gIGhlaWdodDogMjVweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG59XG5cbi8qIE9GRkVSIFBBR0UgKi9cblxuLm9mZmVyIHtcbiAgLyogd2lkdGg6IDEwMCU7ICovXG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWJlZGVlO1xuICBwYWRkaW5nOiA1MHB4O1xufVxuXG4ub2ZmZXItbGVmdCB7XG4gIHdpZHRoOiA1MCU7XG4gIG1hcmdpbi1ib3R0b206IDEwMHB4O1xuICAvKiBib3JkZXI6IDJweCByZWQgc29saWQ7ICovXG59XG5cbi5vZmZlci1sZWZ0IGltZyB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG9iamVjdC1maXQ6IGNvdmVyO1xufVxuXG4ub2ZmZXItcmlnaHQge1xuICB3aWR0aDogNDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAvKiBib3JkZXI6IDJweCBibHVlIHNvbGlkOyAqL1xuICBtYXJnaW4tYm90dG9tOiAxMDBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG59XG5cbi5yaWdodC1wcmljZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgcGFkZGluZy1sZWZ0OiAyMHB4O1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMCU7XG4gIC8qIGJvcmRlcjogMnB4IGdyZWVuIHNvbGlkOyAqL1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgZm9udC1zaXplOiAxLjVyZW07XG59XG5cbi5yaWdodC1zdGFydCB7XG4gIHBhZGRpbmc6IDIwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBsaW5lLWhlaWdodDogMjVweDtcblxuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAzMCU7XG4gIC8qIGJvcmRlcjogMnB4IGdyZWVuIHNvbGlkOyAqL1xuICAvKiBiYWNrZ3JvdW5kLWNvbG9yOiBibHVlOyAqL1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgbGlnaHRncmF5O1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBvdmVyZmxvdzogYXV0bztcbn1cblxuLnJpZ2h0LXN0YXJ0Ojotd2Via2l0LXNjcm9sbGJhciB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG4vKiAuYmxvY19waG90bzo6LXdlYmtpdC1zY3JvbGxiYXIge1xuICAvKiBkaXNwbGF5OiBub25lOyBcbiBcbn0gKi9cblxuLnJpZ2h0LXN0YXJ0IHNwYW4ge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5yaWdodC1lbmQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDQwJTtcbiAgLyogYm9yZGVyOiAycHggeWVsbG93IHNvbGlkOyAqL1xuICBsaW5lLWhlaWdodDogNDBweDtcbiAgcGFkZGluZzogMjBweDtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgb3ZlcmZsb3c6IGF1dG87XG59XG5cbi5yaWdodC1lbmQ6Oi13ZWJraXQtc2Nyb2xsYmFyIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmNlbnRlciB7XG4gIHdpZHRoOiAxMDAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICAvKiBib3JkZXI6IDJweCByZWQgc29saWQ7ICovXG59XG5cbi5jZW50ZXIgcCB7XG4gIHdpZHRoOiA1MCU7XG4gIC8qIGJvcmRlcjogMnB4IGJsdWUgc29saWQ7ICovXG4gIG9wYWNpdHk6IDAuNTtcbn1cblxuLnJpZ2h0LW93bmVyIHtcbiAgLyogYmFja2dyb3VuZC1jb2xvcjogZ29sZDsgKi9cbiAgZGlzcGxheTogZmxleDtcbn1cblxuLnJpZ2h0LW93bmVyIGltZyB7XG4gIHdpZHRoOiA3MHB4O1xuICBoZWlnaHQ6IDcwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4ucHJvZHVjdC1uYW1lIHtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbi5kZXNjcmlwdGlvbiB7XG4gIG9wYWNpdHk6IDAuNTtcbn1cblxuLmJ1dHRvbi1lbmQge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAyMCU7XG4gIC8qIGJvcmRlcjogMnB4IHJlZCBzb2xpZDsgKi9cbiAgcGFkZGluZzogMjBweDtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIG1hcmdpbi10b3A6IDIwcHg7XG59XG5cbi5idXR0b24tZW5kIGJ1dHRvbiB7XG4gIHdpZHRoOiA4MCU7XG4gIGhlaWdodDogNDAlO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICMxZmIwYmE7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgYm9yZGVyOiBub25lO1xufVxuXG4ubGluay1vZmZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMxZmIwYmE7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgZm9udC1zaXplOiAxcmVtO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG59XG4vKiBNRURJQSBRVUVSSUVTICovXG5AbWVkaWEgKG1heC13aWR0aDogODY4cHgpIHtcbiAgLmNhcmQge1xuICAgIHdpZHRoOiAzMCU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGJvcmRlcjogMnB4IHJlZCBzb2xpZDtcbiAgICBtYXJnaW46IDIwcHggMHB4O1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIH1cblxuICAuaGVhZGVyLWRpdiB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuXG4gICAgcGFkZGluZzogMjBweCA1MHB4O1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIH1cblxuICAuaGVhZGVyLXN0YXJ0IHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJvcmRlcjogMnB4IHJlZCBzb2xpZDtcbiAgfVxuXG4gIC5oZWFkZXItZW5kIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJvcmRlcjogMnB4IHllbGxvdyBzb2xpZDtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+}</style></head>
+  <body cz-shortcut-listen="true">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div><div><header><div class="container"><div class="header-div"><div class="header-start"><img src="./React App_files/Vinted_logo.10b0caad793dd0a8ea72.png" alt=""><input type="search" placeholder=" 🔍 Recherche tes articles"></div><div class="header-end"><button class="button1">S'inscrire</button><button class="button1">Se connecter</button><button class="button2">Vends tes articles</button></div></div></div></header><div><div class="home"><img src="./React App_files/image_vinted.4292101c388bcdceca6e.jpeg" alt=""><div class="container"><div class="start-sell"><h2>Prêts à faire du tri dans vos placards ?</h2><button>Commencer à vendre</button></div><div class="all-cards "><a class="card" href="http://localhost:3000/offers/62cc3b5ac2527d1e1b5445b7"><div class="card-name"><div><img src="./React App_files/avatar.jpg" alt=""></div><div>Alcidie_Guillot51</div></div><div class="card-img"><img src="./React App_files/preview.jpg" alt=""></div><div class="card-price">25 $</div><div><div>STRADIVARIUS</div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b5cc2527d1e1b5445b9"><div class="card-name"><div><img src="./React App_files/avatar(1).jpg" alt=""></div><div>Médéric_Boyer</div></div><div class="card-img"><img src="./React App_files/preview(1).jpg" alt=""></div><div class="card-price">5.9 $</div><div><div>H&amp;M</div><div></div></div><div><div></div><div>6 ANS / 110-116 CM</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b5ec2527d1e1b5445bb"><div class="card-name"><div><img src="./React App_files/avatar(2).jpg" alt=""></div><div>Arthurine.Cousin</div></div><div class="card-img"><img src="./React App_files/preview(2).jpg" alt=""></div><div class="card-price">28 $</div><div><div>SPRINGFIELD </div><div></div></div><div><div></div><div>M / 38 / 10</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b60c2527d1e1b5445bd"><div class="card-name"><div><img src="./React App_files/avatar.png" alt=""></div><div>Christodule91</div></div><div class="card-img"><img src="./React App_files/preview(3).jpg" alt=""></div><div class="card-price">10 $</div><div><div>JENNYFER</div><div></div></div><div><div></div><div>M / 38 / 10</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b62c2527d1e1b5445bf"><div class="card-name"><div><img src="./React App_files/avatar(3).jpg" alt=""></div><div>Jude72</div></div><div class="card-img"><img src="./React App_files/preview(4).jpg" alt=""></div><div class="card-price">15 $</div><div><div>TULIPANO</div><div></div></div><div><div></div><div>37</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b66c2527d1e1b5445c1"><div class="card-name"></div><div class="card-img"><img src="./React App_files/preview(5).jpg" alt=""></div><div class="card-price">25 $</div><div><div>H&amp;M</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b6ac2527d1e1b5445c3"><div class="card-name"><div><img src="./React App_files/avatar(4).jpg" alt=""></div><div>Lorraine62</div></div><div class="card-img"><img src="./React App_files/preview(6).jpg" alt=""></div><div class="card-price">15 $</div><div><div>VAN LAACK</div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b71c2527d1e1b5445c5"><div class="card-name"><div><img src="./React App_files/avatar(5).jpg" alt=""></div><div>Agapet.Mathieu</div></div><div class="card-img"><img src="./React App_files/preview(7).jpg" alt=""></div><div class="card-price">5.9 $</div><div><div>ZARA</div><div></div></div><div><div></div><div>9-12 MOIS / 74-80 CM</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b74c2527d1e1b5445c7"><div class="card-name"><div><img src="./React App_files/avatar(6).png" alt=""></div><div>Armine_Francois6</div></div><div class="card-img"><img src="./React App_files/preview(8).jpg" alt=""></div><div class="card-price">180 $</div><div><div>NIKE</div><div></div></div><div><div></div><div>38.5</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b78c2527d1e1b5445c9"><div class="card-name"><div><img src="./React App_files/avatar(2).jpg" alt=""></div><div>Arthurine.Cousin</div></div><div class="card-img"><img src="./React App_files/preview(9).jpg" alt=""></div><div class="card-price">27.5 $</div><div><div>LEVI'S</div><div></div></div><div><div></div><div>L</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b7cc2527d1e1b5445cb"><div class="card-name"></div><div class="card-img"><img src="./React App_files/preview(10).jpg" alt=""></div><div class="card-price">13 $</div><div><div>TIENDA LOCAL</div><div></div></div><div><div></div><div>XL / 42 / 14</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b7fc2527d1e1b5445cd"><div class="card-name"><div><img src="./React App_files/avatar(1).jpg" alt=""></div><div>Médéric_Boyer</div></div><div class="card-img"><img src="./React App_files/preview(11).jpg" alt=""></div><div class="card-price">10 $</div><div><div>VINTAGE</div><div></div></div><div><div></div><div>TAILLE UNIQUE</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b82c2527d1e1b5445cf"><div class="card-name"><div><img src="./React App_files/avatar(7).jpg" alt=""></div><div>Eugénie8</div></div><div class="card-img"><img src="./React App_files/preview(12).jpg" alt=""></div><div class="card-price">38 $</div><div><div>NIKE</div><div></div></div><div><div></div><div>M</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b88c2527d1e1b5445d1"><div class="card-name"><div><img src="./React App_files/avatar(8).jpg" alt=""></div><div>Wandrille81</div></div><div class="card-img"><img src="./React App_files/preview(13).jpg" alt=""></div><div class="card-price">10 $</div><div><div>THE NORTH FACE</div><div></div></div><div><div></div><div>S</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b8bc2527d1e1b5445d3"><div class="card-name"></div><div class="card-img"><img src="./React App_files/preview(14).jpg" alt=""></div><div class="card-price">40 $</div><div><div>THE KOOPLES</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b8fc2527d1e1b5445d5"><div class="card-name"><div><img src="./React App_files/avatar.png" alt=""></div><div>Christodule91</div></div><div class="card-img"><img src="./React App_files/preview(15).jpg" alt=""></div><div class="card-price">40 $</div><div><div>BALZAC PARIS</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b94c2527d1e1b5445d7"><div class="card-name"><div><img src="./React App_files/avatar(9).jpg" alt=""></div><div>Émérencie_Dufour</div></div><div class="card-img"><img src="./React App_files/preview(16).jpg" alt=""></div><div class="card-price">25 $</div><div><div>BA&amp;SH</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b98c2527d1e1b5445d9"><div class="card-name"><div><img src="./React App_files/avatar(10).jpg" alt=""></div><div>Guillemette.Marchal96</div></div><div class="card-img"><img src="./React App_files/preview(17).jpg" alt=""></div><div class="card-price">30 $</div><div><div>SANDRO</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3b9cc2527d1e1b5445db"><div class="card-name"><div><img src="./React App_files/avatar(11).jpg" alt=""></div><div>Laurent_Faure67</div></div><div class="card-img"><img src="./React App_files/preview(18).jpg" alt=""></div><div class="card-price">20 $</div><div><div>IKITO</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3ba0c2527d1e1b5445dd"><div class="card-name"><div><img src="./React App_files/avatar(8).jpg" alt=""></div><div>Wandrille81</div></div><div class="card-img"><img src="./React App_files/preview(19).jpg" alt=""></div><div class="card-price">45 $</div><div><div>MAJE</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3ba4c2527d1e1b5445df"><div class="card-name"><div><img src="./React App_files/avatar.png" alt=""></div><div>Christodule91</div></div><div class="card-img"><img src="./React App_files/preview(20).jpg" alt=""></div><div class="card-price">18 $</div><div><div>ZARA</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3ba8c2527d1e1b5445e1"><div class="card-name"><div><img src="./React App_files/avatar(9).jpg" alt=""></div><div>Émérencie_Dufour</div></div><div class="card-img"><img src="./React App_files/preview(21).jpg" alt=""></div><div class="card-price">90 $</div><div><div>BRIXTOL TEXTILES</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bacc2527d1e1b5445e3"><div class="card-name"><div><img src="./React App_files/avatar(11).jpg" alt=""></div><div>Laurent_Faure67</div></div><div class="card-img"><img src="./React App_files/preview(22).jpg" alt=""></div><div class="card-price">15 $</div><div><div>BELLEROSE</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bb1c2527d1e1b5445e5"><div class="card-name"><div><img src="./React App_files/avatar(5).jpg" alt=""></div><div>Agapet.Mathieu</div></div><div class="card-img"><img src="./React App_files/preview(23).jpg" alt=""></div><div class="card-price">95 $</div><div><div>HEIMSTONE</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bb5c2527d1e1b5445e7"><div class="card-name"><div><img src="./React App_files/avatar(3).jpg" alt=""></div><div>Jude72</div></div><div class="card-img"><img src="./React App_files/preview(24).jpg" alt=""></div><div class="card-price">75 $</div><div><div>ROUJE</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bb9c2527d1e1b5445e9"><div class="card-name"><div><img src="./React App_files/avatar.png" alt=""></div><div>Christodule91</div></div><div class="card-img"><img src="./React App_files/preview(25).jpg" alt=""></div><div class="card-price">30 $</div><div><div>ZADIG &amp; VOLTAIRE</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bbdc2527d1e1b5445eb"><div class="card-name"><div><img src="./React App_files/avatar(12).jpg" alt=""></div><div>Ella_Dufour</div></div><div class="card-img"><img src="./React App_files/preview(26).jpg" alt=""></div><div class="card-price">50 $</div><div><div>ROSEANNA</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bc2c2527d1e1b5445ed"><div class="card-name"><div><img src="./React App_files/avatar(4).jpg" alt=""></div><div>Lorraine62</div></div><div class="card-img"><img src="./React App_files/preview(27).jpg" alt=""></div><div class="card-price">40 $</div><div><div>MANOUSH</div><div></div></div><div><div></div><div>XS / 34 / 6</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bc6c2527d1e1b5445ef"><div class="card-name"><div><img src="./React App_files/avatar(8).jpg" alt=""></div><div>Wandrille81</div></div><div class="card-img"><img src="./React App_files/preview(28).jpg" alt=""></div><div class="card-price">40 $</div><div><div>MANOUSH</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bcac2527d1e1b5445f1"><div class="card-name"><div><img src="./React App_files/avatar(13).jpg" alt=""></div><div>Victorin52</div></div><div class="card-img"><img src="./React App_files/preview(29).jpg" alt=""></div><div class="card-price">80 $</div><div><div>MAISON SARAH LAVOINE</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bd0c2527d1e1b5445f3"><div class="card-name"><div><img src="./React App_files/avatar(14).jpg" alt=""></div><div>Baudouin_Fabre</div></div><div class="card-img"><img src="./React App_files/preview(30).jpg" alt=""></div><div class="card-price">45 $</div><div><div>SANDRO</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a><a class="card" href="http://localhost:3000/offers/62cc3bd5c2527d1e1b5445f5"><div class="card-name"><div><img src="./React App_files/avatar(6).png" alt=""></div><div>Armine_Francois6</div></div><div class="card-img"><img src="./React App_files/preview(31).jpg" alt=""></div><div class="card-price">40 $</div><div><div>DVF DIANE VON FURSTENBERG</div><div></div></div><div><div></div><div>S / 36 / 8</div></div><div><div></div><div></div></div><div><div></div><div></div></div><div><div></div><div></div></div></a></div></div></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  
+
+</body><loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container><loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container></html>

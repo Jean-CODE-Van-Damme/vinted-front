@@ -1,7 +1,12 @@
+/* * {
+  box-sizing: border-box;
+} */
+
 .container {
-  /* width: 100%; */
+  width: 100%;
   max-width: 1300px;
   margin: 0 auto;
+  /* background-color: blue; */
 }
 
 a {
@@ -12,16 +17,33 @@ a {
 /* HEADER */
 
 header {
-  height: 80px;
+  /* height: 80px; */
   background-color: whitesmoke;
 }
 
 .header-div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  gap: 20px;
+
   padding: 20px 50px;
   box-sizing: border-box;
+}
+
+.header-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  /* border: 2px red solid; */
+}
+
+.header-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  /* border: 2px yellow solid; */
 }
 
 header img {
@@ -30,7 +52,7 @@ header img {
 }
 
 header input {
-  width: 45%;
+  width: 70%;
   height: 45px;
   outline-color: transparent;
   border: none;
@@ -42,7 +64,7 @@ header input {
   border: 1px #2db0ba solid;
   color: #2db0ba;
   border-radius: 5px;
-  width: 10%;
+  width: 20%;
   height: 35px;
 }
 
@@ -51,12 +73,16 @@ header input {
   color: white;
   margin-left: 20px;
   border-radius: 5px;
-  width: 15%;
+  width: 30%;
   height: 35px;
 }
 
 /* HOME PAGE */
 
+.home {
+  padding: 40px;
+  box-sizing: border-box;
+}
 .home img {
   width: 100%;
   height: 350px;
@@ -98,20 +124,20 @@ h2 {
   margin-top: 50px;
   display: flex;
   /* justify-content: center; */
-  justify-content: flex-start;
-  width: 75%;
+  justify-content: space-between;
+  width: 100%;
   /* border: 4px black solid; */
   flex-wrap: wrap;
   /* background-color: gold; */
-  padding: 20px;
-  gap: 20px;
 }
 
 .card {
-  width: 18%;
+  width: 23%;
   display: flex;
   flex-direction: column;
+  /* border: 2px red solid; */
   margin: 20px 0px;
+  box-sizing: border-box;
 }
 
 .card-name {
@@ -121,6 +147,8 @@ h2 {
   justify-content: flex-start;
   align-items: center;
   /* border: 2px blue solid; */
+  padding-left: 10px;
+  box-sizing: border-box;
 }
 
 .card-img {
@@ -155,11 +183,12 @@ h2 {
 /* OFFER PAGE */
 
 .offer {
-  /* width: 100%; */
+  box-sizing: border-box;
   display: flex;
   justify-content: space-around;
   background-color: #ebedee;
   padding: 50px;
+  /* border: 2px red solid; */
 }
 
 .offer-left {
@@ -295,8 +324,181 @@ h2 {
 }
 
 .link-offer {
+  margin: ;
   background-color: #1fb0ba;
   color: white;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-radius: 5px;
+  text-align: center;
+}
+/* MEDIA QUERIES */
+/* PALLIER 868 PX */
+@media (max-width: 868px) /* HOME PAGE */ {
+  .card {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px red solid; */
+    margin: 20px 0px;
+    box-sizing: border-box;
+  }
+
+  .header-div {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 50px;
+    box-sizing: border-box;
+  }
+
+  .header-start {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* border: 2px red solid; */
+  }
+
+  .header-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* border: 2px yellow solid; */
+  }
+
+  /* OFFER PAGE */
+
+  .offer {
+    /* border: 2px red solid; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ebedee;
+    padding: 50px;
+  }
+
+  .offer-left {
+    width: 80%;
+  }
+
+  .offer-right {
+    width: 80%;
+  }
+
+  .button-end {
+    width: 100%;
+    height: 40%;
+    /* border: 2px red solid; */
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .button-end button {
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #1fb0ba;
+    color: white;
+    border: none;
+    /* border: 2px yellow solid; */
+  }
+
+  .right-start {
+    font-size: 1rem;
+    overflow: auto;
+  }
+
+  .right-end {
+    font-size: 1rem;
+    overflow: auto;
+  }
+
+  /* PALLIER 68 PX */
+  @media (max-width: 768px) {
+    .card {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      /* border: 2px red solid; */
+      margin: 20px 0px;
+      box-sizing: border-box;
+    }
+
+    .right-start {
+      font-size: 1rem;
+      overflow: auto;
+      border: 2px red solid;
+    }
+
+    .right-end {
+      font-size: 2rem;
+      overflow: auto;
+      border: 2px green solid;
+    }
+  }
+  /* PALLIER 524 PX */
+  @media (max-width: 524px) {
+    .all-cards {
+      margin: 0 auto;
+      margin-top: 50px;
+      display: flex;
+
+      justify-content: center;
+      width: 100%;
+    }
+
+    .card {
+      margin: 0 auto;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      /* border: 2px red solid; */
+      margin: 20px 0px;
+      box-sizing: border-box;
+    }
+  }
+
+  @media (max-width: 524px) {
+    .button1 {
+      border: 1px #2db0ba solid;
+      color: #2db0ba;
+      border-radius: 5px;
+      width: 30%;
+      height: 35px;
+    }
+
+    .button2 {
+      width: 30%;
+    }
+
+    header input {
+      width: 60%;
+    }
+
+    .offer {
+      /* border: 2px red solid; */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ebedee;
+      padding: 50px;
+    }
+  }
+
+  .right-start {
+    font-size: 0.7rem;
+    overflow: auto;
+  }
+
+  .right-end {
+    font-size: 0.8rem;
+    overflow: auto;
+  }
 }
