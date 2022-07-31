@@ -50,7 +50,12 @@ const Home = () => {
                     <div className="card-name">
                       {element.owner && (
                         <div>
-                          <img src={element.owner.account.avatar.url} alt="" />
+                          {element.owner.account.avatar && (
+                            <img
+                              src={element.owner.account.avatar.url}
+                              alt=""
+                            />
+                          )}
                         </div>
                       )}
                       {element.owner && (

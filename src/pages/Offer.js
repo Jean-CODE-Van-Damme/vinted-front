@@ -82,7 +82,7 @@ const Offer = () => {
                 <p className="description">{data.product_description}</p>
               )}
               <div className="right-owner">
-                {data.owner && (
+                {data.owner.account.avatar && (
                   <img src={data.owner.account.avatar.secure_url} alt="" />
                 )}
                 {data.owner && <div>{data.owner.account.username}</div>}
