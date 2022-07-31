@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../images/Vinted_logo.png";
+import Cookies from "js-cookie";
 
-const Header = () => {
+const Header = ({ token, setToken }) => {
+  console.log("ici je vois ca le token>>>", token);
   return (
     <>
       <header>
@@ -15,13 +17,25 @@ const Header = () => {
               <input type="search" placeholder=" 🔍 Recherche tes articles" />
             </div>
             <div className="header-end">
-              <Link className="button1" to="/signup">
-                <button>S'inscrire</button>
-              </Link>
+              {token ? (
+                <button
+                  onClick={() => {
+                    Cookies.remove("cookie");
+                  }}
+                >
+                  Se deconnecter
+                </button>
+              ) : (
+                <>
+                  <Link className="button1" to="/signup">
+                    <button>S'inscrire</button>
+                  </Link>
 
-              <Link className="button1" to="/login">
-                <button>Se connecter</button>
-              </Link>
+                  <Link className="button1" to="/login">
+                    <button>Se connecter</button>
+                  </Link>
+                </>
+              )}
 
               <button className="button2">Vends tes articles</button>
             </div>

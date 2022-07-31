@@ -12,10 +12,11 @@ const Home = () => {
         "https://lereacteur-vinted-api.herokuapp.com/offers"
       );
       setData(response.data);
-      setIsLoading(false);
+      console.log(response.data);
     } catch (error) {
       console.log(error.response);
     }
+    setIsLoading(false);
   };
 
   // console.log("data >>>> ", data);

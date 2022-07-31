@@ -13,14 +13,13 @@ const Offer = () => {
       const response = await axios.get(
         ` https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
       );
+      console.log("data >>>> ", response.data);
       setData(response.data);
-      setIsLoading(false);
     } catch (error) {
       console.log(error.response);
     }
+    setIsLoading(false);
   };
-
-  console.log("data >>>> ", data);
 
   useEffect(() => {
     fetchData();
@@ -82,7 +81,7 @@ const Offer = () => {
                 <p className="description">{data.product_description}</p>
               )}
               <div className="right-owner">
-                {data.owner.account.avatar && (
+                {data.owner && (
                   <img src={data.owner.account.avatar.secure_url} alt="" />
                 )}
                 {data.owner && <div>{data.owner.account.username}</div>}
