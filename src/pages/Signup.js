@@ -5,6 +5,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [data, setData] = useState("");
   console.log("newsletter >>>", newsletter);
 
   let isChecked = false;
@@ -40,8 +41,8 @@ const Signup = () => {
           <input
             type="checkbox"
             id="checkbox"
-            checked={isChecked ? true : false}
-            onChange={() => (isChecked = !isChecked)}
+            checked={newsletter}
+            onChange={() => setNewsletter(!newsletter)}
           />
           <label htmlFor="checkbox">S'inscrire à notre newsletter</label>
           <button>S'inscrire</button>
