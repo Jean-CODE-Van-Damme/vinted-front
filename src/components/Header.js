@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../images/Vinted_logo.png";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ token, setToken }) => {
-  console.log("ici je vois ca le token>>>", token);
+  const navigate = useNavigate();
   return (
     <>
       <header>
@@ -19,19 +20,21 @@ const Header = ({ token, setToken }) => {
             <div className="header-end">
               {token ? (
                 <button
+                  className="button2"
                   onClick={() => {
                     setToken(Cookies.remove("cookie"));
+                    navigate("/login");
                   }}
                 >
                   Se deconnecter
                 </button>
               ) : (
                 <>
-                  <Link className="button1" to="/signup">
+                  <Link className="button2" to="/signup">
                     <button>S'inscrire</button>
                   </Link>
 
-                  <Link className="button1" to="/login">
+                  <Link className="button2" to="/login">
                     <button>Se connecter</button>
                   </Link>
                 </>

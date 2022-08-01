@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Signup = ({ token, setToken }) => {
   const [userName, setUserName] = useState("");
@@ -9,18 +10,11 @@ const Signup = ({ token, setToken }) => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   //   console.log("newsletter >>>", newsletter);
 
   const fetchData = async () => {
-    // console.log("body >>>", {
-    //   email: email,
-    //   username: userName,
-    //   password: password,
-    //   newsletter: newsletter,
-    // });
-
     try {
       setIsLoading(true);
       const response = await axios.post(
@@ -52,36 +46,40 @@ const Signup = ({ token, setToken }) => {
 
   return (
     <div>
-      <div>
-        <h3>S'inscrire</h3>
+      <h3>S'inscrire</h3>
 
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            fetchData();
-
-            // navigate("/");
-          }}
-        >
-          <div className="form-part">
-            <input
-              type="text"
-              placeholder="Nom d'utilisateur"
-              value={userName}
-              onChange={(event) => setUserName(event.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Mot de Passe"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          fetchData();
+          if (token) {
+            navigate("/");
+          }
+        }}
+      >
+        <div className="form-part">
+          <input
+            className="form-part-input"
+            type="text"
+            placeholder="Nom d'utilisateur"
+            value={userName}
+            onChange={(event) => setUserName(event.target.value)}
+          />
+          <input
+            className="form-part-input"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            className="form-part-input"
+            type="password"
+            placeholder="Mot de Passe"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <div className="box">
             <input
               type="checkbox"
               id="checkbox"
@@ -89,15 +87,26 @@ const Signup = ({ token, setToken }) => {
               onChange={() => setNewsletter((prevState) => !prevState)}
             />
             <label htmlFor="checkbox">S'inscrire à notre newsletter</label>
-
-            {isLoading ? (
-              <p>Inscription en cours</p>
-            ) : (
-              <button>S'inscrire</button>
-            )}
+            <div>
+              <p className="politique">
+                En m'inscrivant je confirme avoir lu et accepté les Termes et
+                Conditions et Politiques de Confidentialité de Vinted. Je
+                confirme avoir au moins 18 ans.
+              </p>
+            </div>
           </div>
-        </form>
-      </div>
+          {isLoading ? (
+            <p>Inscription en cours</p>
+          ) : (
+            <button>S'inscrire</button>
+          )}
+          <Link to="/login">
+            <p className="form-part-end">
+              Tu as Déja un compte? Connecte-toi !
+            </p>
+          </Link>
+        </div>
+      </form>
     </div>
   );
 };
