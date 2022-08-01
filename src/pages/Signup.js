@@ -36,6 +36,7 @@ const Signup = ({ token, setToken }) => {
           expires: 10,
         })
       );
+      navigate("/");
 
       console.log("data >>>> ", response.data);
     } catch (error) {
@@ -52,9 +53,6 @@ const Signup = ({ token, setToken }) => {
         onSubmit={(event) => {
           event.preventDefault();
           fetchData();
-          if (token) {
-            navigate("/");
-          }
         }}
       >
         <div className="form-part">

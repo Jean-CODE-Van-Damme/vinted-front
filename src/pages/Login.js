@@ -29,6 +29,7 @@ const Login = ({ token, setToken }) => {
           expires: 10,
         })
       );
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
@@ -42,9 +43,6 @@ const Login = ({ token, setToken }) => {
         onSubmit={(event) => {
           event.preventDefault();
           fetchData();
-          if (token) {
-            navigate("/");
-          }
         }}
       >
         <div className="login-form">
