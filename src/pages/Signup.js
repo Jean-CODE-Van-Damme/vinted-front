@@ -33,9 +33,15 @@ const Signup = ({ token, setToken }) => {
         }
       );
 
-      const cookie = Cookies.set("cookie", response.data.token, {
+      Cookies.set("cookie", response.data.token, {
         expires: 10,
       });
+
+      setToken(
+        Cookies.set("cookie", response.data.token, {
+          expires: 10,
+        })
+      );
 
       console.log("data >>>> ", response.data);
     } catch (error) {
@@ -80,7 +86,7 @@ const Signup = ({ token, setToken }) => {
               type="checkbox"
               id="checkbox"
               checked={newsletter}
-              onChange={() => setNewsletter(!newsletter)}
+              onChange={() => setNewsletter((prevState) => !prevState)}
             />
             <label htmlFor="checkbox">S'inscrire à notre newsletter</label>
 
