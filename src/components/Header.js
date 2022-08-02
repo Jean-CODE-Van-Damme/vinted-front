@@ -22,7 +22,8 @@ const Header = ({ token, setToken }) => {
                 <button
                   className="button2"
                   onClick={() => {
-                    setToken(Cookies.remove("cookie"));
+                    setToken(null);
+                    Cookies.remove("cookie");
                     navigate("/login");
                   }}
                 >
