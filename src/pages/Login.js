@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = ({ token, setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState("false");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const fetchData = async () => {
@@ -17,8 +17,8 @@ const Login = ({ token, setToken }) => {
         { email: email, password: password }
       );
 
-      console.log("token connexion >>>", response.data.token);
-      console.log("data >>>> ", response.data);
+      // console.log("token connexion >>>", response.data.token);
+      // console.log("data >>>> ", response.data);
 
       Cookies.set("cookie", response.data.token, {
         expires: 10,
@@ -29,11 +29,11 @@ const Login = ({ token, setToken }) => {
           expires: 10,
         })
       );
-      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
     setIsLoading(false);
+    navigate("/");
   };
 
   return (
@@ -63,12 +63,12 @@ const Login = ({ token, setToken }) => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          {/* {isLoading ? (
+          {isLoading ? (
             <p>Connexion en cours</p>
           ) : (
             <button>Se connecter</button>
-          )} */}
-          <button>Se connecter</button>
+          )}
+
           <Link to="/signup">
             <p className="login-form-p">Pas encore de compte ? Inscris-toi !</p>
           </Link>
