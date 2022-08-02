@@ -29,11 +29,11 @@ const Login = ({ token, setToken }) => {
           expires: 10,
         })
       );
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
     setIsLoading(false);
-    navigate("/");
   };
 
   return (
