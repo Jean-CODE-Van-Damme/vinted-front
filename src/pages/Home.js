@@ -2,17 +2,72 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = ({
+  title,
+
+  ascPrice,
+  setAscPrice,
+  desPrice,
+  setDesPrice,
+  priceMin,
+  priceMax,
+}) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  // console.log("title>>>", title);
 
   const fetchData = async () => {
+    if (ascPrice === true) {
+      setAscPrice("sort=price-asc");
+    }
+
+    if (desPrice === true) {
+      setDesPrice("sort=price-desc");
+    }
+
+    let filters = "";
+
+    if (title) {
+      filters = filters + `?title=${title}`;
+    }
+
+    if (ascPrice) {
+      filters = filters + `?${ascPrice}`;
+    }
+
+    if (desPrice) {
+      filters = filters + `?${desPrice}`;
+    }
+
+    if (priceMin) {
+      filters = filters + `?priceMin=${priceMin}`;
+    }
+
+    if (priceMax) {
+      filters = filters + `?priceMax=${priceMax}`;
+    }
+
+    // if (priceMin && priceMax) {
+    //   filters = filters + `?priceMin=${priceMin}&priceMax=${priceMax}`;
+    // }
+
+    console.log("filters>>>", filters);
+
     try {
-      const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
-      );
-      setData(response.data);
-      console.log(response.data);
+      if (filters) {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers${filters}`
+        );
+        setData(response.data);
+        // console.log(response.data);
+      }
+      if (!filters) {
+        const response = await axios.get(
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
+        );
+        setData(response.data);
+        // console.log(response.data);
+      }
     } catch (error) {
       console.log(error.response);
     }
@@ -23,7 +78,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [title, ascPrice, desPrice, priceMin, priceMax]);
 
   const offersArray = data.offers;
 
@@ -69,6 +124,7 @@ const Home = () => {
                       <img src={element.product_image.secure_url} alt="" />
                     </div>
                     <div className="card-price">{element.product_price} $</div>
+                    <div className="name">{element.product_name}</div>
 
                     {productArray.map((product, index) => {
                       return (

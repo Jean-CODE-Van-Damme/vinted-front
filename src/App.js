@@ -10,14 +10,47 @@ import Cookies from "js-cookie";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("cookie") || null);
+  const [title, setTitle] = useState("");
+  const [ascPrice, setAscPrice] = useState(false);
+  const [desPrice, setDesPrice] = useState(false);
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
 
   return (
     <div>
       <div>
         <Router>
-          <Header token={token} setToken={setToken} />
+          <Header
+            token={token}
+            setToken={setToken}
+            setTitle={setTitle}
+            ascPrice={ascPrice}
+            setAscPrice={setAscPrice}
+            desPrice={desPrice}
+            setDesPrice={setDesPrice}
+            priceMin={priceMin}
+            priceMax={priceMax}
+            setPriceMin={setPriceMin}
+            setPriceMax={setPriceMax}
+          />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <Home
+                  title={title}
+                  setTitle={setTitle}
+                  ascPrice={ascPrice}
+                  setAscPrice={setAscPrice}
+                  desPrice={desPrice}
+                  setDesPrice={setDesPrice}
+                  priceMin={priceMin}
+                  priceMax={priceMax}
+                  setPriceMin={setPriceMin}
+                  setPriceMax={setPriceMax}
+                />
+              }
+            />
             <Route
               path="/login"
               element={<Login token={token} setToken={setToken} />}
