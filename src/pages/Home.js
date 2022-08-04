@@ -4,19 +4,22 @@ import { useEffect, useState } from "react";
 
 const Home = ({
   title,
-
   ascPrice,
   setAscPrice,
   desPrice,
   setDesPrice,
   priceMin,
   priceMax,
+  page,
+  limit,
+  setLimit,
 }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // console.log("title>>>", title);
   console.log("ascPrice >>>", ascPrice);
   console.log("desPrice >>>", desPrice);
+  console.log("page >>>", page);
 
   const filtersArray = [];
 
@@ -49,7 +52,13 @@ const Home = ({
       filtersArray.push(`priceMax=${priceMax}`);
     }
 
-    // console.log("filtersArray>>>", filtersArray);
+    if (page) {
+      filtersArray.push(`page=${page}`);
+    }
+
+    if (limit) {
+      filtersArray.push(`limit=${limit}`);
+    }
 
     try {
       const response = await axios.get(
@@ -58,7 +67,7 @@ const Home = ({
         )}`
       );
 
-      // console.log(response.data);
+      console.log(response.data);
       //
       //
       // const response = await axios.get(
@@ -66,7 +75,7 @@ const Home = ({
       //     title ? title : ""
       //   }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
       //     priceMax ? priceMax : ""
-      //   }&?sort=${ascPrice ? ascPrice : ""}&?sort=${desPrice ? desPrice : ""}`
+      //   }&sort=${ascPrice ? ascPrice : desPrice ? desPrice : ""} `
       // );
 
       setData(response.data);
@@ -82,7 +91,7 @@ const Home = ({
 
   useEffect(() => {
     fetchData();
-  }, [title, ascPrice, desPrice, priceMin, priceMax]);
+  }, [title, ascPrice, desPrice, priceMin, priceMax, page, limit]);
 
   const offersArray = data.offers;
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../images/Vinted_logo.png";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const Header = ({
   token,
@@ -15,6 +16,10 @@ const Header = ({
   priceMax,
   setPriceMin,
   setPriceMax,
+  page,
+  setPage,
+  limit,
+  setLimit,
 }) => {
   const navigate = useNavigate();
   return (
@@ -29,7 +34,7 @@ const Header = ({
 
               <input
                 type="search"
-                placeholder=" 🔍 Recherche tes articles"
+                placeholder=" 🔍 Look for your articles"
                 onChange={(event) => setTitle(event.target.value)}
               />
             </div>
@@ -48,38 +53,47 @@ const Header = ({
               ) : (
                 <>
                   <Link className="button2" to="/signup">
-                    <button>S'inscrire</button>
+                    <button>Login</button>
                   </Link>
 
                   <Link className="button2" to="/login">
-                    <button>Se connecter</button>
+                    <button>Connect</button>
                   </Link>
                 </>
               )}
 
-              <button className="button2">Vends tes articles</button>
+              <button className="button2">Sell your articles</button>
             </div>
           </div>
           <div className="filters">
             <div className="croiss">
-              <input
-                type="checkbox"
-                id="price"
-                value={ascPrice}
-                onChange={() => {
-                  setAscPrice((prevState) => !prevState);
-                }}
-              />
-              <label htmlFor="price">trier par prix croissant</label>
-              <input
-                type="checkbox"
-                id="price"
-                value={desPrice}
-                onChange={() => {
-                  setDesPrice((prevState) => !prevState);
-                }}
-              />
-              <label htmlFor="price">trier par prix decroissant</label>
+              {!desPrice && (
+                <>
+                  <input
+                    type="checkbox"
+                    id="price"
+                    value={ascPrice}
+                    onChange={() => {
+                      setAscPrice((prevState) => !prevState);
+                    }}
+                  />
+                  <label htmlFor="price">Ascending price</label>
+                </>
+              )}
+
+              {!ascPrice && (
+                <>
+                  <input
+                    type="checkbox"
+                    id="price"
+                    value={desPrice}
+                    onChange={() => {
+                      setDesPrice((prevState) => !prevState);
+                    }}
+                  />
+                  <label htmlFor="price">Decreasing price</label>
+                </>
+              )}
             </div>
             <div className="min-max">
               <input
@@ -88,14 +102,30 @@ const Header = ({
                 value={priceMin}
                 onChange={(event) => setPriceMin(Number(event.target.value))}
               />
-              <label htmlFor="price-min">Prix mini</label>
+              <label htmlFor="price-min">Price min</label>
               <input
                 type="text"
                 id="price-max"
                 value={priceMax}
                 onChange={(event) => setPriceMax(Number(event.target.value))}
               />
-              <label htmlFor="price-max">Prix maxi</label>
+              <label htmlFor="price-max">Price max</label>
+            </div>
+            <div className="class-page">
+              <input
+                type="number"
+                id="page"
+                value={page}
+                onChange={(event) => setPage(Number(event.target.value))}
+              />
+              <label htmlFor="page">Page number</label>
+              <input
+                type="number"
+                id="page"
+                value={limit}
+                onChange={(event) => setLimit(Number(event.target.value))}
+              />
+              <label htmlFor="page">Offers per page</label>
             </div>
           </div>
         </div>

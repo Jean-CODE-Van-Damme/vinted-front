@@ -15,6 +15,8 @@ function App() {
   const [desPrice, setDesPrice] = useState(false);
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(5);
 
   return (
     <div>
@@ -32,6 +34,10 @@ function App() {
             priceMax={priceMax}
             setPriceMin={setPriceMin}
             setPriceMax={setPriceMax}
+            page={page}
+            setPage={setPage}
+            limit={limit}
+            setLimit={setLimit}
           />
           <Routes>
             <Route
@@ -48,6 +54,10 @@ function App() {
                   priceMax={priceMax}
                   setPriceMin={setPriceMin}
                   setPriceMax={setPriceMax}
+                  page={page}
+                  setPage={setPage}
+                  limit={limit}
+                  setLimit={setLimit}
                 />
               }
             />
