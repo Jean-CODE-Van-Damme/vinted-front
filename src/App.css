@@ -72,11 +72,12 @@ header input {
 .button2 {
   background-color: #2db0ba;
   color: white;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   border-radius: 5px;
   width: 30%;
   height: 35px;
   border: none;
+  /* border: 2px red solid; */
 }
 
 .button2 button {
@@ -157,10 +158,58 @@ header input {
 }
 
 .class-page input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 30%;
   height: 25px;
   background-color: #2db0ba;
   color: white;
+}
+
+.big {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.little {
+  opacity: 0.5;
+  font-size: 2rem;
+}
+
+.croiss > input[type="checkbox"] {
+  width: 80px;
+  height: 40px;
+  outline: none;
+  -webkit-appearance: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 20px;
+  background: grey;
+  transition: 0.5s;
+}
+
+.croiss > input:checked[type="checkbox"] {
+  background: #2db0ba;
+}
+
+.croiss > input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  background: white;
+  transition: 0.5s;
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.croiss > input:checked[type="checkbox"]:before {
+  left: 40px;
 }
 /* HOME PAGE */
 
@@ -434,8 +483,8 @@ h2 {
 /* SIGN-UP PAGE */
 h3 {
   text-align: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   font-size: 1.8rem;
 }
 
@@ -804,7 +853,7 @@ h3 {
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 320px) {
   .form-part {
     margin: 0 auto;
     width: 100%;
@@ -815,6 +864,20 @@ h3 {
   .politique {
     margin-top: 20px;
     font-size: 0.6rem;
+  }
+
+  .button2 {
+    width: 31%;
+    height: 50px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 0.7rem;
+    /* border: 2px red solid; */
+  }
+
+  .button2 button {
+    font-size: 0.7rem;
   }
 }
 

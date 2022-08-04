@@ -5,78 +5,73 @@ import { useEffect, useState } from "react";
 const Home = ({
   title,
   ascPrice,
-  setAscPrice,
   desPrice,
-  setDesPrice,
   priceMin,
   priceMax,
   page,
   limit,
-  setLimit,
+  box,
 }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // console.log("title>>>", title);
-  console.log("ascPrice >>>", ascPrice);
-  console.log("desPrice >>>", desPrice);
-  console.log("page >>>", page);
 
-  const filtersArray = [];
+  // console.log("page >>>", page);
 
   const fetchData = async () => {
-    if (ascPrice) {
-      setAscPrice("price-asc");
-    }
+    // Methode en prenant chaque state, en le pushant dans un tab vide
 
-    if (desPrice) {
-      setDesPrice("price-desc");
-    }
+    // const filtersArray = [];
+    // if (box) {
+    //   filtersArray.push("sort=price-asc");
+    // } else {
+    //   filtersArray.push("sort=price-desc");
+    // }
 
-    if (title) {
-      filtersArray.push(`title=${title}`);
-    }
+    // if (title) {
+    //   filtersArray.push(`title=${title}`);
+    // }
 
-    if (ascPrice) {
-      filtersArray.push(`sort=${ascPrice}`);
-    }
+    // if (priceMin) {
+    //   filtersArray.push(`priceMin=${priceMin}`);
+    // }
 
-    if (desPrice) {
-      filtersArray.push(`sort=${desPrice}`);
-    }
+    // if (priceMax) {
+    //   filtersArray.push(`priceMax=${priceMax}`);
+    // }
 
-    if (priceMin) {
-      filtersArray.push(`priceMin=${priceMin}`);
-    }
+    // if (page) {
+    //   filtersArray.push(`page=${page}`);
+    // }
 
-    if (priceMax) {
-      filtersArray.push(`priceMax=${priceMax}`);
-    }
+    // if (limit) {
+    //   filtersArray.push(`limit=${limit}`);
+    // }
 
-    if (page) {
-      filtersArray.push(`page=${page}`);
-    }
-
-    if (limit) {
-      filtersArray.push(`limit=${limit}`);
-    }
+    // console.log("FA >>>", filtersArray.join("&"));
 
     try {
-      const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?${filtersArray.join(
-          "&"
-        )}`
-      );
+      // On push  le tab en le transformant en string , separant chaque element par un "&"
 
-      console.log(response.data);
-      //
-      //
       // const response = await axios.get(
-      //   `https://lereacteur-vinted-api.herokuapp.com/offers?title=${
-      //     title ? title : ""
-      //   }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
-      //     priceMax ? priceMax : ""
-      //   }&sort=${ascPrice ? ascPrice : desPrice ? desPrice : ""} `
+      //   `https://lereacteur-vinted-api.herokuapp.com/offers?${filtersArray.join(
+      //     "&"
+      //   )}`
       // );
+
+      // console.log(response.data);
+      //
+      //
+
+      const response = await axios.get(
+        `https://lereacteur-vinted-api.herokuapp.com/offers?title=${
+          title ? title : ""
+        }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
+          priceMax ? priceMax : ""
+        }&page=${page ? page : ""}&limit=${limit ? limit : ""}&sort=${
+          box ? "price-asc" : "price-desc"
+        } `
+      );
 
       setData(response.data);
       // console.log(response.data);
@@ -90,8 +85,9 @@ const Home = ({
   // console.log("data >>>> ", data);
 
   useEffect(() => {
+    console.log("useEffect");
     fetchData();
-  }, [title, ascPrice, desPrice, priceMin, priceMax, page, limit]);
+  }, [title, priceMin, priceMax, page, limit, box]);
 
   const offersArray = data.offers;
 

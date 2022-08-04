@@ -8,10 +8,7 @@ const Header = ({
   token,
   setToken,
   setTitle,
-  ascPrice,
-  setAscPrice,
-  desPrice,
-  setDesPrice,
+
   priceMin,
   priceMax,
   setPriceMin,
@@ -20,6 +17,8 @@ const Header = ({
   setPage,
   limit,
   setLimit,
+  box,
+  setBox,
 }) => {
   const navigate = useNavigate();
   return (
@@ -34,7 +33,7 @@ const Header = ({
 
               <input
                 type="search"
-                placeholder=" 🔍 Look for your articles"
+                placeholder=" 🔍 Recherche"
                 onChange={(event) => setTitle(event.target.value)}
               />
             </div>
@@ -53,47 +52,35 @@ const Header = ({
               ) : (
                 <>
                   <Link className="button2" to="/signup">
-                    <button>Login</button>
+                    <button>S'inscrire</button>
                   </Link>
 
                   <Link className="button2" to="/login">
-                    <button>Connect</button>
+                    <button> Se Connecter</button>
                   </Link>
                 </>
               )}
 
-              <button className="button2">Sell your articles</button>
+              <button className="button2">Vendre ses articles</button>
             </div>
           </div>
           <div className="filters">
             <div className="croiss">
-              {!desPrice && (
-                <>
-                  <input
-                    type="checkbox"
-                    id="price"
-                    value={ascPrice}
-                    onChange={() => {
-                      setAscPrice((prevState) => !prevState);
-                    }}
-                  />
-                  <label htmlFor="price">Ascending price</label>
-                </>
-              )}
+              <>
+                <input
+                  className="box"
+                  type="checkbox"
+                  id="price"
+                  value={box}
+                  onChange={() => {
+                    setBox((prevState) => !prevState);
+                  }}
+                />
 
-              {!ascPrice && (
-                <>
-                  <input
-                    type="checkbox"
-                    id="price"
-                    value={desPrice}
-                    onChange={() => {
-                      setDesPrice((prevState) => !prevState);
-                    }}
-                  />
-                  <label htmlFor="price">Decreasing price</label>
-                </>
-              )}
+                {/* {box ? "Croissant" : "Decroissant"} */}
+                <label className={box ? "big" : "little"}> 👆 </label>
+                <label className={!box ? "big" : "little"}>👇</label>
+              </>
             </div>
             <div className="min-max">
               <input
@@ -102,14 +89,14 @@ const Header = ({
                 value={priceMin}
                 onChange={(event) => setPriceMin(Number(event.target.value))}
               />
-              <label htmlFor="price-min">Price min</label>
+              <label htmlFor="price-min">Prix min</label>
               <input
                 type="text"
                 id="price-max"
                 value={priceMax}
                 onChange={(event) => setPriceMax(Number(event.target.value))}
               />
-              <label htmlFor="price-max">Price max</label>
+              <label htmlFor="price-max">Prix max</label>
             </div>
             <div className="class-page">
               <input
@@ -118,14 +105,14 @@ const Header = ({
                 value={page}
                 onChange={(event) => setPage(Number(event.target.value))}
               />
-              <label htmlFor="page">Page number</label>
+              <label htmlFor="page">Page</label>
               <input
                 type="number"
                 id="page"
                 value={limit}
                 onChange={(event) => setLimit(Number(event.target.value))}
               />
-              <label htmlFor="page">Offers per page</label>
+              <label htmlFor="page">Offres</label>
             </div>
           </div>
         </div>

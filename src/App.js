@@ -11,12 +11,11 @@ import Cookies from "js-cookie";
 function App() {
   const [token, setToken] = useState(Cookies.get("cookie") || null);
   const [title, setTitle] = useState("");
-  const [ascPrice, setAscPrice] = useState(false);
-  const [desPrice, setDesPrice] = useState(false);
+  const [box, setBox] = useState(true);
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(10);
 
   return (
     <div>
@@ -26,10 +25,6 @@ function App() {
             token={token}
             setToken={setToken}
             setTitle={setTitle}
-            ascPrice={ascPrice}
-            setAscPrice={setAscPrice}
-            desPrice={desPrice}
-            setDesPrice={setDesPrice}
             priceMin={priceMin}
             priceMax={priceMax}
             setPriceMin={setPriceMin}
@@ -38,6 +33,8 @@ function App() {
             setPage={setPage}
             limit={limit}
             setLimit={setLimit}
+            box={box}
+            setBox={setBox}
           />
           <Routes>
             <Route
@@ -46,10 +43,6 @@ function App() {
                 <Home
                   title={title}
                   setTitle={setTitle}
-                  ascPrice={ascPrice}
-                  setAscPrice={setAscPrice}
-                  desPrice={desPrice}
-                  setDesPrice={setDesPrice}
                   priceMin={priceMin}
                   priceMax={priceMax}
                   setPriceMin={setPriceMin}
@@ -58,6 +51,8 @@ function App() {
                   setPage={setPage}
                   limit={limit}
                   setLimit={setLimit}
+                  box={box}
+                  setBox={setBox}
                 />
               }
             />
