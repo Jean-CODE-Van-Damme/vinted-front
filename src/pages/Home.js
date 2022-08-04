@@ -85,7 +85,6 @@ const Home = ({
   // console.log("data >>>> ", data);
 
   useEffect(() => {
-    console.log("useEffect");
     fetchData();
   }, [title, priceMin, priceMax, page, limit, box]);
 

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import logo from "../images/Vinted_logo.png";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const Header = ({
   token,
@@ -78,8 +77,8 @@ const Header = ({
                 />
 
                 {/* {box ? "Croissant" : "Decroissant"} */}
-                <label className={box ? "big" : "little"}> 👆 </label>
-                <label className={!box ? "big" : "little"}>👇</label>
+                <label className={box ? "big" : "little"}>$👇</label>
+                <label className={!box ? "big" : "little"}>$👆</label>
               </>
             </div>
             <div className="min-max">
