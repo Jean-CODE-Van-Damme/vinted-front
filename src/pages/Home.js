@@ -15,59 +15,63 @@ const Home = ({
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // console.log("title>>>", title);
+  console.log("ascPrice >>>", ascPrice);
+  console.log("desPrice >>>", desPrice);
+
+  const filtersArray = [];
 
   const fetchData = async () => {
-    if (ascPrice === true) {
-      setAscPrice("sort=price-asc");
-    }
-
-    if (desPrice === true) {
-      setDesPrice("sort=price-desc");
-    }
-
-    let filters = "";
-
-    if (title) {
-      filters = filters + `?title=${title}`;
-    }
-
     if (ascPrice) {
-      filters = filters + `?${ascPrice}`;
+      setAscPrice("price-asc");
     }
 
     if (desPrice) {
-      filters = filters + `?${desPrice}`;
+      setDesPrice("price-desc");
+    }
+
+    if (title) {
+      filtersArray.push(`title=${title}`);
+    }
+
+    if (ascPrice) {
+      filtersArray.push(`sort=${ascPrice}`);
+    }
+
+    if (desPrice) {
+      filtersArray.push(`sort=${desPrice}`);
     }
 
     if (priceMin) {
-      filters = filters + `?priceMin=${priceMin}`;
+      filtersArray.push(`priceMin=${priceMin}`);
     }
 
     if (priceMax) {
-      filters = filters + `?priceMax=${priceMax}`;
+      filtersArray.push(`priceMax=${priceMax}`);
     }
 
-    // if (priceMin && priceMax) {
-    //   filters = filters + `?priceMin=${priceMin}&priceMax=${priceMax}`;
-    // }
-
-    console.log("filters>>>", filters);
+    // console.log("filtersArray>>>", filtersArray);
 
     try {
-      if (filters) {
-        const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers${filters}`
-        );
-        setData(response.data);
-        // console.log(response.data);
-      }
-      if (!filters) {
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
-        );
-        setData(response.data);
-        // console.log(response.data);
-      }
+      const response = await axios.get(
+        `https://lereacteur-vinted-api.herokuapp.com/offers?${filtersArray.join(
+          "&"
+        )}`
+      );
+
+      // console.log(response.data);
+      //
+      //
+      // const response = await axios.get(
+      //   `https://lereacteur-vinted-api.herokuapp.com/offers?title=${
+      //     title ? title : ""
+      //   }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
+      //     priceMax ? priceMax : ""
+      //   }&?sort=${ascPrice ? ascPrice : ""}&?sort=${desPrice ? desPrice : ""}`
+      // );
+
+      setData(response.data);
+      // console.log(response.data);
+      // }
     } catch (error) {
       console.log(error.response);
     }

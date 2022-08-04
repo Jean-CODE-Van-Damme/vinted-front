@@ -86,14 +86,14 @@ const Header = ({
                 type="text"
                 id="price-min"
                 value={priceMin}
-                onChange={(event) => setPriceMin(event.target.value)}
+                onChange={(event) => setPriceMin(Number(event.target.value))}
               />
               <label htmlFor="price-min">Prix mini</label>
               <input
                 type="text"
                 id="price-max"
                 value={priceMax}
-                onChange={(event) => setPriceMax(event.target.value)}
+                onChange={(event) => setPriceMax(Number(event.target.value))}
               />
               <label htmlFor="price-max">Prix maxi</label>
             </div>
