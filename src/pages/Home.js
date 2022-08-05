@@ -18,73 +18,72 @@ const Home = ({
 
   // console.log("page >>>", page);
 
-  const fetchData = async () => {
-    // Methode en prenant chaque state, en le pushant dans un tab vide
-
-    // const filtersArray = [];
-    // if (box) {
-    //   filtersArray.push("sort=price-asc");
-    // } else {
-    //   filtersArray.push("sort=price-desc");
-    // }
-
-    // if (title) {
-    //   filtersArray.push(`title=${title}`);
-    // }
-
-    // if (priceMin) {
-    //   filtersArray.push(`priceMin=${priceMin}`);
-    // }
-
-    // if (priceMax) {
-    //   filtersArray.push(`priceMax=${priceMax}`);
-    // }
-
-    // if (page) {
-    //   filtersArray.push(`page=${page}`);
-    // }
-
-    // if (limit) {
-    //   filtersArray.push(`limit=${limit}`);
-    // }
-
-    // console.log("FA >>>", filtersArray.join("&"));
-
-    try {
-      // On push  le tab en le transformant en string , separant chaque element par un "&"
-
-      // const response = await axios.get(
-      //   `https://lereacteur-vinted-api.herokuapp.com/offers?${filtersArray.join(
-      //     "&"
-      //   )}`
-      // );
-
-      // console.log(response.data);
-      //
-      //
-
-      const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?title=${
-          title ? title : ""
-        }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
-          priceMax ? priceMax : ""
-        }&page=${page ? page : ""}&limit=${limit ? limit : ""}&sort=${
-          box ? "price-asc" : "price-desc"
-        } `
-      );
-
-      setData(response.data);
-      // console.log(response.data);
-      // }
-    } catch (error) {
-      console.log(error.response);
-    }
-    setIsLoading(false);
-  };
-
   // console.log("data >>>> ", data);
 
   useEffect(() => {
+    const fetchData = async () => {
+      // Methode en prenant chaque state, en le pushant dans un tab vide
+
+      // const filtersArray = [];
+      // if (box) {
+      //   filtersArray.push("sort=price-asc");
+      // } else {
+      //   filtersArray.push("sort=price-desc");
+      // }
+
+      // if (title) {
+      //   filtersArray.push(`title=${title}`);
+      // }
+
+      // if (priceMin) {
+      //   filtersArray.push(`priceMin=${priceMin}`);
+      // }
+
+      // if (priceMax) {
+      //   filtersArray.push(`priceMax=${priceMax}`);
+      // }
+
+      // if (page) {
+      //   filtersArray.push(`page=${page}`);
+      // }
+
+      // if (limit) {
+      //   filtersArray.push(`limit=${limit}`);
+      // }
+
+      // console.log("FA >>>", filtersArray.join("&"));
+
+      try {
+        // On push  le tab en le transformant en string , separant chaque element par un "&"
+
+        // const response = await axios.get(
+        //   `https://lereacteur-vinted-api.herokuapp.com/offers?${filtersArray.join(
+        //     "&"
+        //   )}`
+        // );
+
+        // console.log(response.data);
+        //
+        //
+
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${
+            title ? title : ""
+          }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
+            priceMax ? priceMax : ""
+          }&page=${page ? page : ""}&limit=${limit ? limit : ""}&sort=${
+            box ? "price-asc" : "price-desc"
+          } `
+        );
+
+        setData(response.data);
+        // console.log(response.data);
+        // }
+      } catch (error) {
+        console.log(error.response);
+      }
+      setIsLoading(false);
+    };
     fetchData();
   }, [title, priceMin, priceMax, page, limit, box]);
 
