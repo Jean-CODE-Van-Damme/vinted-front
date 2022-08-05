@@ -77,8 +77,8 @@ const Header = ({
                 />
 
                 {/* {box ? "Croissant" : "Decroissant"} */}
-                <label className={box ? "big" : "little"}>$👇</label>
-                <label className={!box ? "big" : "little"}>$👆</label>
+                <label className={box ? "big" : "little"}>Prix👇</label>
+                <label className={!box ? "big" : "little"}>Prix👆</label>
               </>
             </div>
             <div className="min-max">
