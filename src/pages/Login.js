@@ -72,6 +72,9 @@ const Login = ({ token, setToken }) => {
           <Link to="/signup">
             <p className="login-form-p">Pas encore de compte ? Inscris-toi !</p>
           </Link>
+          {!token && (
+            <p>Merci de vous connecter pour voir le detail des offres</p>
+          )}
         </div>
       </form>
     </div>

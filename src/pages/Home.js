@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 
 const Home = ({
   title,
-  ascPrice,
-  desPrice,
   priceMin,
   priceMax,
   page,
   limit,
   box,
+  token,
+  setToken,
 }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);

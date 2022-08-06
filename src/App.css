@@ -2,6 +2,10 @@
   box-sizing: border-box;
 } */
 
+body {
+  font-family: "Raleway", sans-serif;
+}
+
 .container {
   width: 100%;
   max-width: 1300px;
@@ -170,12 +174,12 @@ header input {
 
 .big {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .little {
   opacity: 0.5;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .croiss > input[type="checkbox"] {

@@ -77,20 +77,22 @@ const Header = ({
                 />
 
                 {/* {box ? "Croissant" : "Decroissant"} */}
-                <label className={box ? "big" : "little"}>Prix👇</label>
-                <label className={!box ? "big" : "little"}>Prix👆</label>
+                <label className={box ? "big" : "little"}>Prix↗️</label>
+                <label className={!box ? "big" : "little"}>Prix↘️</label>
               </>
             </div>
             <div className="min-max">
               <input
-                type="text"
+                min="0"
+                type="number"
                 id="price-min"
                 value={priceMin}
                 onChange={(event) => setPriceMin(Number(event.target.value))}
               />
               <label htmlFor="price-min">Prix min</label>
               <input
-                type="text"
+                min="0"
+                type="number"
                 id="price-max"
                 value={priceMax}
                 onChange={(event) => setPriceMax(Number(event.target.value))}
@@ -99,6 +101,7 @@ const Header = ({
             </div>
             <div className="class-page">
               <input
+                min="0"
                 type="number"
                 id="page"
                 value={page}
@@ -107,6 +110,7 @@ const Header = ({
               <label htmlFor="page">Page</label>
               <input
                 type="number"
+                min="0"
                 id="page"
                 value={limit}
                 onChange={(event) => setLimit(Number(event.target.value))}

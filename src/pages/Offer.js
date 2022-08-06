@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -25,7 +25,7 @@ const Offer = () => {
     fetchData();
   });
 
-  return (
+  return token ? (
     <div>
       {isLoading ? (
         <p>Chargement</p>
@@ -94,6 +94,8 @@ const Offer = () => {
         </div>
       )}
     </div>
+  ) : (
+    <Navigate to="/login" />
   );
 };
 
