@@ -174,12 +174,12 @@ header input {
 
 .big {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .little {
   opacity: 0.5;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .croiss > input[type="checkbox"] {
@@ -254,7 +254,7 @@ header input {
 
 .start-sell button {
   width: 60%;
-  height: 25%;
+  height: 100%;
   background-color: #2db0ba;
   color: white;
   border-radius: 5px;
@@ -595,6 +595,20 @@ h3 {
 .login-form-p {
   color: #1fb0ba;
   font-size: 0.8rem;
+}
+
+/* PUBLISH PAGE */
+
+.form-publish {
+  display: flex;
+  flex-direction: column;
+  border: 2px red solid;
+}
+
+.publish-center {
+  display: flex;
+  flex-direction: column;
+  border: 2px blue solid;
 }
 
 /* MEDIA QUERIES */

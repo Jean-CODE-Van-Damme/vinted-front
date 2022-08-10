@@ -15,9 +15,7 @@ const Home = ({
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // console.log("title>>>", title);
-
   // console.log("page >>>", page);
-
   // console.log("data >>>> ", data);
 
   useEffect(() => {
@@ -98,7 +96,10 @@ const Home = ({
           <div className="big-picture">
             <div className="start-sell">
               <h2>Prêts à faire du tri dans vos placards ?</h2>
-              <button>Commencer à vendre</button>
+
+              <Link to="/publish">
+                <button>Commencer à vendre</button>
+              </Link>
             </div>
           </div>
 

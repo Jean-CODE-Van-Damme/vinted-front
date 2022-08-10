@@ -60,7 +60,9 @@ const Header = ({
                 </>
               )}
 
-              <button className="button2">Vendre ses articles</button>
+              <Link className="button2" to="/publish">
+                <button>Vendre ses articles</button>
+              </Link>
             </div>
           </div>
           <div className="filters">
@@ -77,8 +79,8 @@ const Header = ({
                 />
 
                 {/* {box ? "Croissant" : "Decroissant"} */}
-                <label className={box ? "big" : "little"}>Prix↗️</label>
-                <label className={!box ? "big" : "little"}>Prix↘️</label>
+                <label className={box ? "big" : "little"}>Prix ↗️</label>
+                <label className={!box ? "big" : "little"}>Prix ↘️</label>
               </>
             </div>
             <div className="min-max">
