@@ -13,6 +13,7 @@ const Publish = ({ token }) => {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
   const [dataImg, setDataImg] = useState();
+  const [prevu, setPrevu] = useState("");
 
   const handleSubmit = async (event) => {
     try {
@@ -47,12 +48,26 @@ const Publish = ({ token }) => {
       <form className="form-publish" onSubmit={handleSubmit}>
         <div className="publish-photo">
           <input
+            className="disapear"
+            id="photo"
             type="file"
+            // onClick={(event) => {
+            //   setPrevu(prevu);
+            // }}
             onChange={(event) => {
               console.log("event >>>", event);
               setPhoto(event.target.files[0]);
+              setPrevu(URL.createObjectURL(event.target.files[0]));
             }}
           />
+          <label className="ajoute" htmlFor="photo">
+            + Ajoute une photo
+          </label>
+          {prevu && (
+            <div>
+              <img className="prevu" src={prevu} alt="offre postée" />
+            </div>
+          )}
         </div>
 
         <div className="publish-title">
@@ -60,7 +75,7 @@ const Publish = ({ token }) => {
             <label htmlFor="title">Titre</label>
             <input
               id="title"
-              placeholder="ex: Chemise Sézane verte"
+              placeholder="ex: Chemise Jules"
               type="text"
               value={title}
               onChange={(event) => {
@@ -71,7 +86,7 @@ const Publish = ({ token }) => {
           <div className="center center2">
             <label htmlFor="description">Descris ton article</label>
             <input
-              placeholder="ex: Porté quelques fois"
+              placeholder="ex: Usure légère"
               id="description"
               type="text"
               value={description}
@@ -122,7 +137,7 @@ const Publish = ({ token }) => {
             <label htmlFor="wearRate">Etat</label>
             <input
               id="wearRate"
-              placeholder="ex: Neuf avec étiquette"
+              placeholder="ex: Neuf"
               type="text"
               value={wearRate}
               onChange={(event) => {
