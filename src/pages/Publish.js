@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 import axios from "axios";
 const Publish = ({ token }) => {
@@ -11,6 +12,7 @@ const Publish = ({ token }) => {
   const [wearRate, setWearRate] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
+  const [dataImg, setDataImg] = useState();
 
   const handleSubmit = async (event) => {
     try {
@@ -32,13 +34,16 @@ const Publish = ({ token }) => {
         { headers: { authorization: `Bearer ${token}` } }
       );
       console.log("response >>>", response);
+      console.log("img", response.data.product_image.secure_url);
+      setDataImg(response.data.product_image.secure_url);
     } catch (error) {
       console.log(error);
     }
   };
 
-  return (
-    <div>
+  return token ? (
+    <div className="publish">
+      <h3>Vends ton article</h3>
       <form className="form-publish" onSubmit={handleSubmit}>
         <div className="publish-photo">
           <input
@@ -49,27 +54,32 @@ const Publish = ({ token }) => {
             }}
           />
         </div>
-        <label htmlFor="title">Titre</label>
-        <div>
-          <input
-            id="title"
-            placeholder="ex: Chemise Sézane verte"
-            type="text"
-            value={title}
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
-          <label htmlFor="description">Description</label>
-          <input
-            placeholder="ex: Porté quelques fois"
-            id="description"
-            type="text"
-            value={description}
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-          />
+
+        <div className="publish-title">
+          <div className="center center1">
+            <label htmlFor="title">Titre</label>
+            <input
+              id="title"
+              placeholder="ex: Chemise Sézane verte"
+              type="text"
+              value={title}
+              onChange={(event) => {
+                setTitle(event.target.value);
+              }}
+            />
+          </div>
+          <div className="center center2">
+            <label htmlFor="description">Descris ton article</label>
+            <input
+              placeholder="ex: Porté quelques fois"
+              id="description"
+              type="text"
+              value={description}
+              onChange={(event) => {
+                setDescription(event.target.value);
+              }}
+            />
+          </div>
         </div>
         <div className="publish-center">
           <div className="center">
@@ -134,23 +144,40 @@ const Publish = ({ token }) => {
           </div>
         </div>
         <div className="publish-price">
-          <label htmlFor="prix">Prix</label>
+          <div className="center center3">
+            <label htmlFor="prix">Prix</label>
+            <input
+              id="prix"
+              placeholder="ex: 30$"
+              type="text"
+              value={price}
+              onChange={(event) => {
+                setPrice(Number(event.target.value));
+              }}
+            />
+          </div>
           <input
-            id="prix"
-            placeholder="ex: 30$"
-            type="text"
-            value={price}
-            onChange={(event) => {
-              setPrice(Number(event.target.value));
-            }}
+            className="publish-price-checkbox"
+            type="checkbox"
+            id-="echange"
           />
+          <label htmlFor="echange">
+            <span>Je suis intéréssé par les échanges</span>{" "}
+          </label>
         </div>
-        <input type="checkbox" id-="echange" />
-        <label htmlFor="echange">Je suis intéréssé par les échanges</label>
-
-        <button>Ajouter</button>
+        <div className="publish-price-button">
+          <button className="add">Ajouter</button>
+        </div>
       </form>
+      {dataImg && (
+        <div className="answer">
+          <p>Votre Offre est bien publiée</p>
+          <img className="picture-publish" src={dataImg} alt="Offre Publiée" />
+        </div>
+      )}
     </div>
+  ) : (
+    <Navigate to="/login" />
   );
 };
 
