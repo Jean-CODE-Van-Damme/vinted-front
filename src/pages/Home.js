@@ -2,16 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Home = ({
-  title,
-  priceMin,
-  priceMax,
-  page,
-  limit,
-  box,
-  token,
-  setToken,
-}) => {
+const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   // console.log("title>>>", title);

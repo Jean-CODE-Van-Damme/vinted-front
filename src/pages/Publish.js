@@ -32,7 +32,13 @@ const Publish = ({ token }) => {
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
         formData,
-        { headers: { authorization: `Bearer ${token}` } }
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+            // pour indiaquer que l on envoi un formData
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       console.log("response >>>", response);
       console.log("img", response.data.product_image.secure_url);

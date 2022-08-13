@@ -1,4 +1,4 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -87,8 +87,10 @@ const Offer = ({ token }) => {
                 {data.owner && <div>{data.owner.account.username}</div>}
               </div>
             </div>
-            <div className="button-end">
-              <button>Acheter</button>
+            <div>
+              <Link className="button-end" to="/payment">
+                <button className="button-end">Acheter</button>
+              </Link>
             </div>
           </div>
         </div>
