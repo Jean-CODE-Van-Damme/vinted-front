@@ -78,7 +78,7 @@ const Payment = () => {
             <span>{totalFixed} $</span>
           </div>
           <div>
-            <p>
+            <p className="pay-p">
               Il ne vous reste plus qu'une étape pour vous offir{" "}
               <span className="bold">{title}</span>. Vous allez payer{" "}
               <span className="bold">{price}</span> $ . Frais de protection et
