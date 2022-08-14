@@ -65,6 +65,7 @@ const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
           } `
         );
 
+        console.log("responsetest >>>", response.data);
         setData(response.data);
         // console.log(response.data);
         // }

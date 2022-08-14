@@ -8,22 +8,21 @@ const Offer = ({ token }) => {
   const { id } = useParams();
   // console.log("id >>>", id);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        ` https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-      );
-      console.log("data >>>> ", response.data);
-      setData(response.data);
-    } catch (error) {
-      console.log(error.response);
-    }
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          ` https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        console.log("data >>>> ", response.data);
+        setData(response.data);
+      } catch (error) {
+        console.log(error.response);
+      }
+      setIsLoading(false);
+    };
     fetchData();
-  });
+  }, [id]);
 
   return token ? (
     <div>
@@ -88,7 +87,11 @@ const Offer = ({ token }) => {
               </div>
             </div>
             <div>
-              <Link className="button-end" to="/payment">
+              <Link
+                className="button-end"
+                to="/payment"
+                state={{ title: data.product_name, price: data.product_price }}
+              >
                 <button className="button-end">Acheter</button>
               </Link>
             </div>
