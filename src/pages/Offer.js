@@ -41,30 +41,30 @@ const Offer = ({ token }) => {
                 return (
                   <>
                     {element.MARQUE && (
-                      <div className="center">
+                      <div className="line">
                         <p>MARQUE </p>
                         <span>{element.MARQUE}</span>
                       </div>
                     )}
                     {element.TAILLE && (
-                      <div className="center">
+                      <div className="line">
                         <p>TAILLE </p>
                         <span>{element.TAILLE}</span>
                       </div>
                     )}
                     {element.ETAT && (
-                      <div className="center">
+                      <div className="line">
                         <p>ETAT </p>
                         <span>{element.ETAT}</span>
                       </div>
                     )}
                     {element.COULEUR && (
-                      <div className="center">
+                      <div className="line">
                         <p>COULEUR </p> <span>{element.COULEUR}</span>
                       </div>
                     )}
                     {element.EMPLACEMENT && (
-                      <div className="center">
+                      <div className="line">
                         <p>EMPLACEMENT </p> <span>{element.EMPLACEMENT}</span>
                       </div>
                     )}
