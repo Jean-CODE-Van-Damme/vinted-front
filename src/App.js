@@ -19,7 +19,7 @@ const stripePromise = loadStripe(
 function App() {
   const [token, setToken] = useState(Cookies.get("cookie") || null);
   const [title, setTitle] = useState("");
-  const [box, setBox] = useState(true);
+  const [cresentPrice, setCrescentPrice] = useState(true);
   const [priceMin, setPriceMin] = useState(null);
   const [priceMax, setPriceMax] = useState(null);
   const [page, setPage] = useState(1);
@@ -41,8 +41,8 @@ function App() {
             setPage={setPage}
             limit={limit}
             setLimit={setLimit}
-            box={box}
-            setBox={setBox}
+            cresentPrice={cresentPrice}
+            setCrescentPrice={setCrescentPrice}
           />
           <Routes>
             <Route
@@ -59,8 +59,8 @@ function App() {
                   setPage={setPage}
                   limit={limit}
                   setLimit={setLimit}
-                  box={box}
-                  setBox={setBox}
+                  cresentPrice={cresentPrice}
+                  setCrescentPrice={setCrescentPrice}
                 />
               }
             />
@@ -72,14 +72,12 @@ function App() {
               path="/signup"
               element={<Signup token={token} setToken={setToken} />}
             />
-
             <Route path="/offers/:id" element={<Offer token={token} />} />
-
             <Route path="/publish" element={<Publish token={token} />} />
-
             <Route
               path="/payment"
               element={
+                // Tout ce qui est lie au paiement
                 <Elements stripe={stripePromise}>
                   <Payment />
                 </Elements>

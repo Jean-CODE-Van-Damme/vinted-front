@@ -2,16 +2,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
+const Home = ({ title, priceMin, priceMax, page, limit, cresentPrice }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  // console.log("title>>>", title);
-  // console.log("page >>>", page);
-  // console.log("data >>>> ", data);
 
   useEffect(() => {
     const fetchData = async () => {
-      // Methode en prenant chaque state, en le pushant dans un tab vide
+      // Methode en prenant chaque state,  et en le pushant dans un tab vide
 
       // const filtersArray = [];
       // if (box) {
@@ -55,27 +52,26 @@ const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
         //
         //
 
+        // Methode pour ajouter les parametres query directement dans l'url
+
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?title=${
             title ? title : ""
           }&priceMin=${priceMin ? priceMin : ""}&priceMax=${
             priceMax ? priceMax : ""
           }&page=${page ? page : ""}&limit=${limit ? limit : ""}&sort=${
-            box ? "price-asc" : "price-desc"
+            cresentPrice ? "price-asc" : "price-desc"
           } `
         );
-
-        console.log("responsetest >>>", response.data);
         setData(response.data);
-        // console.log(response.data);
-        // }
       } catch (error) {
         console.log(error.response);
       }
       setIsLoading(false);
     };
     fetchData();
-  }, [title, priceMin, priceMax, page, limit, box]);
+    // tableau des dependances des states qui relanceront le useEffect
+  }, [title, priceMin, priceMax, page, limit, cresentPrice]);
 
   const offersArray = data.offers;
 
@@ -84,6 +80,7 @@ const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
       {isLoading ? (
         <p>Chargement</p>
       ) : (
+        // Lorsque le chargement de la requete est termine
         <div className="home">
           <div className="big-picture">
             <div className="start-sell">
@@ -97,12 +94,15 @@ const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
 
           <div className="container">
             <div className="all-cards ">
+              {/* On map offersArray  */}
               {offersArray.map((element) => {
                 const productArray = element.product_details;
                 const id = element._id;
 
                 return (
+                  // Lien vers la page /offers avec en param l id de l offre selectionee
                   <Link to={`/offers/${id}`} className="card" key={element._id}>
+                    {/* Les elements a afficher pour chaque offre  */}
                     <div className="card-name">
                       {element.owner && (
                         <div>
@@ -125,7 +125,7 @@ const Home = ({ title, priceMin, priceMax, page, limit, box }) => {
                     </div>
                     <div className="card-price">{element.product_price} $</div>
                     <div className="name">{element.product_name}</div>
-
+                    {/* On map sur productArray  */}
                     {productArray.map((product, index) => {
                       return (
                         <div className="productArray" key={index}>

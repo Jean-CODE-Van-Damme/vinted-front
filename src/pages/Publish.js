@@ -18,7 +18,9 @@ const Publish = ({ token }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
+      // creation formData
       const formData = new FormData();
+      // ajouts de paires clefs valeurs a formData
       formData.append("title", title);
       formData.append("description", description);
       formData.append("price", price);
@@ -30,18 +32,19 @@ const Publish = ({ token }) => {
       formData.append("picture", photo);
 
       const response = await axios.post(
+        // requete vers le back avec en param body le formData
         "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
         formData,
         {
+          // transmition du token
           headers: {
             authorization: `Bearer ${token}`,
-            // pour indiaquer que l on envoi un formData
+            // pour indiquer que l on envoi un formData
             "Content-Type": "multipart/form-data",
           },
         }
       );
-      console.log("response >>>", response);
-      console.log("img", response.data.product_image.secure_url);
+
       setDataImg(response.data.product_image.secure_url);
     } catch (error) {
       console.log(error);
@@ -57,9 +60,6 @@ const Publish = ({ token }) => {
             className="disapear"
             id="photo"
             type="file"
-            // onClick={(event) => {
-            //   setPrevu(prevu);
-            // }}
             onChange={(event) => {
               console.log("event >>>", event);
               setPhoto(event.target.files[0]);

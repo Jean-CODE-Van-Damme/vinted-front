@@ -15,9 +15,10 @@ const Header = ({
   setPage,
   limit,
   setLimit,
-  box,
-  setBox,
+  cresentPrice,
+  setCrescentPrice,
 }) => {
+  // HOOKS
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,7 +31,6 @@ const Header = ({
               <Link to="/">
                 <img src={logo} alt="" />
               </Link>
-
               <input
                 type="search"
                 placeholder=" 🔍 Recherche"
@@ -38,6 +38,7 @@ const Header = ({
               />
             </div>
             <div className="header-end">
+              {/* Si un token existe */}
               {token ? (
                 <button
                   className="button2"
@@ -50,6 +51,7 @@ const Header = ({
                   Se deconnecter
                 </button>
               ) : (
+                // si on a pas de token present
                 <>
                   <Link className="button2" to="/signup">
                     <button>S'inscrire</button>
@@ -61,29 +63,35 @@ const Header = ({
                 </>
               )}
 
+              {/* Lien vers la page publish */}
               <Link className="button2" to="/publish">
                 <button>Vendre ses articles</button>
               </Link>
             </div>
           </div>
 
+          {/* Afficher ou non les filtres que l on soit sur la page home ou sur une autre page */}
           {location.pathname === "/" ? (
             <div className="filters">
               <div className="croiss">
                 <>
+                  {/* box qui gere le state crescentPrice */}
                   <input
                     className="box"
                     type="checkbox"
                     id="price"
-                    value={box}
+                    value={cresentPrice}
                     onChange={() => {
-                      setBox((prevState) => !prevState);
+                      setCrescentPrice((prevState) => !prevState);
                     }}
                   />
-
-                  {/* {box ? "Croissant" : "Decroissant"} */}
-                  <label className={box ? "big" : "little"}>Prix ↗️</label>
-                  <label className={!box ? "big" : "little"}>Prix ↘️</label>
+                  {/* changement de classe du label selon le state box  */}
+                  <label className={cresentPrice ? "big" : "little"}>
+                    Prix ↗️
+                  </label>
+                  <label className={!cresentPrice ? "big" : "little"}>
+                    Prix ↘️
+                  </label>
                 </>
               </div>
               <div className="min-max">

@@ -6,29 +6,33 @@ const Offer = ({ token }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
-  // console.log("id >>>", id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // requete vers le back afin d afficher l offre correspondant a l id envoyee en params
         const response = await axios.get(
           ` https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        console.log("data >>>> ", response.data);
+
         setData(response.data);
       } catch (error) {
         console.log(error.response);
       }
+      // Fin du chargement lie a la requete
       setIsLoading(false);
     };
     fetchData();
   }, [id]);
 
+  // si il y a un token on retourne
   return token ? (
     <div>
+      {/* En chargement  */}
       {isLoading ? (
         <p>Chargement</p>
       ) : (
+        // Chargement termine
         <div className="offer">
           <div className="offer-left">
             <img src={data.product_image.secure_url} alt="" />
@@ -37,6 +41,7 @@ const Offer = ({ token }) => {
             <div className="right-price">{data.product_price} $</div>
 
             <div className="right-start">
+              {/* On map data.product_detail */}
               {data.product_details.map((element) => {
                 return (
                   <>
@@ -87,9 +92,11 @@ const Offer = ({ token }) => {
               </div>
             </div>
             <div>
+              {/* Lien vers la page payment pour acheter le produit  */}
               <Link
                 className="button-end"
                 to="/payment"
+                // On passe en state le titre et le prix avec le Link afin de les recup sur la page payment
                 state={{ title: data.product_name, price: data.product_price }}
               >
                 <button className="button-end">Acheter</button>
@@ -100,6 +107,7 @@ const Offer = ({ token }) => {
       )}
     </div>
   ) : (
+    // Si il n y a pas de token , renvoi vers la page de connexion
     <Navigate to="/login" />
   );
 };
