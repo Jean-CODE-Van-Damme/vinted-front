@@ -20,8 +20,8 @@ function App() {
   const [token, setToken] = useState(Cookies.get("cookie") || null);
   const [title, setTitle] = useState("");
   const [box, setBox] = useState(true);
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
+  const [priceMin, setPriceMin] = useState(null);
+  const [priceMax, setPriceMax] = useState(null);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(20);
 
