@@ -44,31 +44,35 @@ const Publish = ({ token }) => {
           },
         }
       );
-
+      console.log("R >>> ", response.data);
+      // reponse recue >>> mise a jour du state dataImg avec la secur url recue du back et de cloudinary
       setDataImg(response.data.product_image.secure_url);
     } catch (error) {
       console.log(error);
     }
   };
-
+  // Si il y a un token
   return token ? (
     <div className="publish">
       <h3>Vends ton article</h3>
       <form className="form-publish" onSubmit={handleSubmit}>
         <div className="publish-photo">
           <input
+            // on fait disparaitre l input et on met le style sur le label
             className="disapear"
             id="photo"
             type="file"
             onChange={(event) => {
               console.log("event >>>", event);
               setPhoto(event.target.files[0]);
+              // appercu de l url des selection de la photo
               setPrevu(URL.createObjectURL(event.target.files[0]));
             }}
           />
           <label className="ajoute" htmlFor="photo">
             + Ajoute une photo
           </label>
+          {/* si le state prevu existe on afficher la photo  */}
           {prevu && (
             <div>
               <img className="prevu" src={prevu} alt="offre postée" />
@@ -183,7 +187,7 @@ const Publish = ({ token }) => {
             id-="echange"
           />
           <label htmlFor="echange">
-            <span>Je suis intéréssé par les échanges</span>{" "}
+            <span>Je suis intéréssé par les échanges</span>
           </label>
         </div>
         <div className="publish-price-button">
@@ -198,6 +202,7 @@ const Publish = ({ token }) => {
       )}
     </div>
   ) : (
+    // Si il n y a pas de token retour a la page login
     <Navigate to="/login" />
   );
 };

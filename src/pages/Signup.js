@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createElement, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,9 @@ const Signup = ({ token, setToken }) => {
 
   const fetchData = async () => {
     try {
+      // chargement le temos de la requete
       setIsLoading(true);
+      // requete vers le back avec un param body
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         {
@@ -26,22 +28,24 @@ const Signup = ({ token, setToken }) => {
           newsletter: newsletter,
         }
       );
-
+      // Creation d un cookie avec comme value le token recu du back
       Cookies.set("cookie", response.data.token, {
         expires: 10,
       });
-
+      // Mise a jour du state token avec la value du cookie
       setToken(
         Cookies.set("cookie", response.data.token, {
           expires: 10,
         })
       );
+      // Si tout est ok : token, cookie cree , retour a la page Home
       navigate("/");
 
-      console.log("data >>>> ", response.data);
+      // console.log("data >>>> ", response.data);
     } catch (error) {
       console.log(error.response);
     }
+    // Fin du chargement lie a la requete vers le back
     setIsLoading(false);
   };
 
@@ -82,6 +86,7 @@ const Signup = ({ token, setToken }) => {
               type="checkbox"
               id="checkbox"
               checked={newsletter}
+              // onchange le state prend la value inverse de sa value precedente
               onChange={() => setNewsletter((prevState) => !prevState)}
             />
             <label htmlFor="checkbox">S'inscrire à notre newsletter</label>
@@ -93,11 +98,14 @@ const Signup = ({ token, setToken }) => {
               </p>
             </div>
           </div>
+          {/* si le chargement est en cours >>> state isLoading === true */}
           {isLoading ? (
             <p>Inscription en cours</p>
           ) : (
+            // Lorsque le chargement est termine >>> state isLoading === false
             <button>S'inscrire</button>
           )}
+          {/* Lien vers la page login  */}
           <Link to="/login">
             <p className="form-part-end">
               Tu as Déja un compte? Connecte-toi !
