@@ -54,8 +54,8 @@ const Publish = ({ token }) => {
   // Si il y a un token
   return token ? (
     <div className="publish">
-      <h3>Vends ton article</h3>
       <form className="form-publish" onSubmit={handleSubmit}>
+        <h3>Vends ton article</h3>
         <div className="publish-photo">
           <input
             // on fait disparaitre l input et on met le style sur le label
@@ -181,14 +181,6 @@ const Publish = ({ token }) => {
               }}
             />
           </div>
-          <input
-            className="publish-price-checkbox"
-            type="checkbox"
-            id-="echange"
-          />
-          <label htmlFor="echange">
-            <span>Je suis intéréssé par les échanges</span>
-          </label>
         </div>
         <div className="publish-price-button">
           <button className="add">Ajouter</button>

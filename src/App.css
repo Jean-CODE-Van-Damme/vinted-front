@@ -601,12 +601,13 @@ h3 {
 
 .publish {
   background-color: #ebedee;
+  height: 100vh;
 }
 
 .form-publish {
   margin: 0 auto;
   width: 80%;
-  height: 750px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -670,11 +671,6 @@ h3 {
   box-sizing: border-box;
 }
 
-.publish-price-checkbox {
-  margin-left: 620px;
-  margin-top: 10px;
-}
-
 .center {
   height: 15%;
   display: flex;
@@ -717,7 +713,7 @@ h3 {
 }
 
 .publish-price-button button {
-  width: 15%;
+  width: 40%;
   height: 100%;
   background-color: #1fb0ba;
   border-radius: 5px;
@@ -757,10 +753,13 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20%;
-  width: 20%;
+  text-align: center;
+  height: 40%;
+  width: 40%;
   border: 2px #1fb0ba solid;
   color: #1fb0ba;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .disapear {
@@ -895,7 +894,7 @@ h5 {
     align-items: center;
     justify-content: center;
     width: 90%;
-    height: 25%;
+    height: 100%;
   }
   /* OFFER PAGE */
 
@@ -1107,7 +1106,7 @@ h5 {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
   .form-part {
     margin: 0 auto;
     width: 100%;
@@ -1132,6 +1131,19 @@ h5 {
 
   .button2 button {
     font-size: 0.7rem;
+  }
+
+  .start-sell a {
+    height: 20%;
+    /* border: 2px red solid; */
+  }
+  .start-sell button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 0.6rem;
   }
 }
 
